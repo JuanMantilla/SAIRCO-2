@@ -12,7 +12,7 @@ class agregarEquipoController extends Controller
 
     public function index()
     {
-        return view('Auth\agregarEquipo');
+        return view('panelDeAdministrador\agregarEquipo');
     }
 
     public function postEquipo(Request $request)
@@ -25,6 +25,6 @@ class agregarEquipoController extends Controller
         $equipo->software=$request->software;
         $equipo->save();
 
-        return view('Auth\equipoAgregado');
+        return view('panelDeAdministrador\equipoAgregado');
     }
 }

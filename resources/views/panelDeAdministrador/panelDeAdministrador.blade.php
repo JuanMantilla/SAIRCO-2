@@ -81,7 +81,7 @@
                                     </li>
 
                                 </ul>
-                                <input onclick="change();" class="btn btn-default" href="#menu-toggle" name="button" type="button" value="Ocutlar menu" id="menu-toggle" ></input>
+                                <input onclick="change();" class="btn btn-default" href="#menu-toggle" name="button" type="button" value="Ocutlar menu" id="menu-toggle" >
 
 
                                 <SCRIPT LANGUAGE="JavaScript">

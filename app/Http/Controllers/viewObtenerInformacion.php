@@ -10,6 +10,6 @@ class viewObtenerInformacion extends Controller
 {
     public function index()
     {
-        return view('Auth\viewObtenerInformacion');
+        return view('panelDeAdministrador\viewObtenerInformacion');
     }
 }

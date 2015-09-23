@@ -18,12 +18,7 @@
     <!-- Custom CSS -->
     <link href="../css/simple-sidebar.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 
 </head>
 
@@ -59,7 +54,7 @@
                 <a href="#">Actualizar horarios</a>
             </li>
             <li>
-                <a href="#">Obtener informacion</a>
+                <a href="{{route('obtenerInformacion')}}">Obtener informacion</a>
             </li>
         </ul>
 
@@ -82,55 +77,54 @@
                     </ul>
                     <h1>Agregar un equipo</h1>
                     <p>Ingresa los datos del nuevo equipo:</p>
-                    <p>
-                    <form class="form-horizontal" role="form" method="POST" action="{{route('agregarEquipo')}}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{route('agregarEquipo')}}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Nombre</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Nombre</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Ubicacion</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="ubicacion" value="{{ old('ubicacion') }}">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Ubicacion</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="ubicacion" value="{{ old('ubicacion') }}">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Horario</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="horario" value="{{ old('horario') }}">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Horario</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="horario" value="{{ old('horario') }}">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Hardware</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="hardware" value="{{ old('hardware')}}">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Hardware</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="hardware" value="{{ old('hardware')}}">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Software</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="software" value="{{ old('software') }}">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Software</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="software" value="{{ old('software') }}">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="store" class="btn btn-primary">
-                                    Agregar equipo
-                                </button>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="store" class="btn btn-primary">
+                                        Agregar equipo
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    </p>
-                    <input onclick="change();" class="btn btn-default" href="#menu-toggle" name="button" type="button" value="Ocutlar menu" id="menu-toggle" ></input>
+                        </form>
+
+                    <input onclick="change();" class="btn btn-default" href="#menu-toggle" name="button" type="button" value="Ocutlar menu" id="menu-toggle" >
 
 
                     <SCRIPT LANGUAGE="JavaScript">

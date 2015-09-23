@@ -224,10 +224,14 @@ th {
   }
   tr,
   img {
-    page-break-inside: avoid;
+    page-break-in
+    : avoid;
   }
   img {
     max-width: 100% !important;
+  }
+  .bienvenido{
+  align-content: right ;
   }
   p,
   h2,

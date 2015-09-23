@@ -9,6 +9,6 @@ use App\Http\Controllers\Controller;
 class panelDeUsuarioController extends Controller
 {
     public function index(){
-        return view('Auth\panelDeUsuario');
+        return view('panelDeUsuario\panelDeUsuario');
     }
 }

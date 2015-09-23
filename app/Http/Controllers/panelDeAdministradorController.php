@@ -10,6 +10,6 @@ class panelDeAdministradorController extends Controller
 {
 
     public function index(){
-        return view('Auth\panelDeAdministrador');
+        return view('panelDeAdministrador\panelDeAdministrador');
     }
 }
