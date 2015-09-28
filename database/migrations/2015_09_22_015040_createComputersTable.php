@@ -24,6 +24,12 @@ class CreateComputersTable extends Migration
             $table->timestamps();
 
         });
+/*
+        Schema::table('equipo', function($table)
+        {
+            $table->foreign('name')
+                ->references('NAME')->on('hardware');
+        });*/
     }
 
     /**
