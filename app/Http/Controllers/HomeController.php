@@ -11,4 +11,17 @@ class HomeController extends Controller
     public function index(){
         return view('home');
     }
+
+    public function acercaDe(){
+        return view ('acercaDe/acercaDe');
+    }
+    public function JuanMartinez(){
+        return view ('acercaDe/JuanMartinez');
+    }
+    public function EdwinPuertas(){
+        return view ('acercaDe/EdwinPuertas');
+    }
+    public function JuanMantilla(){
+        return view ('acercaDe/JuanMantilla');
+    }
 }

@@ -44,6 +44,26 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
+Route::get('/acercaDe',[
+        'uses'=>'HomeController@acercaDe',
+        'as'  => 'acercaDe'
+    ]
+);
+Route::get('/JuanMartinez',[
+        'uses'=>'HomeController@JuanMartinez',
+        'as'  => 'JuanMartinez'
+    ]
+);
+Route::get('/JuanMantilla',[
+        'uses'=>'HomeController@JuanMantilla',
+        'as'  => 'JuanMantilla'
+    ]
+);
+Route::get('/EdwinPuertas',[
+        'uses'=>'HomeController@EdwinPuertas',
+        'as'  => 'EdwinPuertas'
+    ]
+);
 Route::get('/view-Panel-de-administrador',[
     'uses'=>'panelDeAdministradorController@index',
     'as'  => 'panelDeAdministrador'

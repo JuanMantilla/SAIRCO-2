@@ -2,8 +2,8 @@
 
     @section ('menu')
         @if (Auth::guest())
-            <li><a href="{{route('login')}}">Login</a></li>
-            <li><a href="{{route('register')}}">Register</a></li>
+            <li><a href="{{route('login')}}">Ingresar</a></li>
+            <li><a href="{{route('register')}}">Registrarse</a></li>
         @else
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
@@ -12,14 +12,14 @@
                 </ul>
             </li>
         @endif
-        <li><a href="#">Que es Sairco?</a></li>
+        <li><a href="{{route('acercaDe')}}">Personas involucradas</a></li>
     @endsection
     @section('content')
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Login</div>
+                        <div class="panel-heading">Ingresar</div>
                         <div class="panel-body">
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
@@ -53,7 +53,7 @@
                                     <div class="col-md-6 col-md-offset-4">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="remember"> Remember Me
+                                                <input type="checkbox" name="remember"> Recuérdame
                                             </label>
                                         </div>
                                     </div>
@@ -62,10 +62,10 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
-                                            Login
+                                            Ingresar
                                         </button>
 
-                                        <a href="/password/email">Forgot Your Password?</a>
+                                        <a href="/password/email">¿Olvidó su contraseña?</a>
                                     </div>
                                 </div>
                             </form>

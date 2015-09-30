@@ -13,7 +13,36 @@
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+.imagen {
+    border-radius: 100px;
+    padding: 0px;
+    width: 50px;
+    height:50px;
 
+}
+
+.imagenGrande {
+    border-radius: 100px;
+    padding: 0px;
+    width: 100px;
+    height:100px;
+
+}
+
+.layout{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.hrPanelPrincipal
+{
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #105;
+}
+.texto{
+    text-align: justify;
+}
 #wrapper.toggled {
     padding-left: 250px;
 }

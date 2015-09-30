@@ -1,14 +1,15 @@
 
-<!DOCTYPE html>
+<!doctype html>
 
 
     <head>
 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta char set = "utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="author" content="Juan Mantilla">
 
         <title>@yield('title')</title>
 
@@ -35,15 +36,19 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="{{route('home')}}">
-                            Sairco
+                            <h1>Sairco</h1>
+                            <hr class="hrPanelPrincipal">
                         </a>
                     </li>
                     <!--Menu de opciones-->
-
+                    <br/><br/><br/><br/>
                     @yield('menu')
+
                 </ul>
+
                 <!--/menu de opciones -->
             </div>
+
             <!-- /#sidebar-wrapper -->
 
             <!-- Contenido de la pagina -->
@@ -64,12 +69,10 @@
                                     else elem.value = "Ocutlar menu";
                                 }
                             </SCRIPT>
+                            <hr class="layout">
                             @yield('content')
-
-
-
-
-
+                            <hr class="layout">
+                            <A HREF="http://www.unitecnologica.edu.co/"><img src="imgs/logoUTB.PNG" style="float:right;" alt="logo UTB"></A>
                         </div>
                     </div>
                 </div>
