@@ -36,7 +36,7 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
                         <a href="{{route('home')}}">
-                            <h1>Sairco</h1>
+                            <h1>SAIRCO</h1>
                             <hr class="hrPanelPrincipal">
                         </a>
                     </li>
