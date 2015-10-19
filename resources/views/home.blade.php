@@ -1,5 +1,7 @@
 @extends('layout')
-
+    @section ('title')
+        Inicio
+    @endsection
     @section ('menu')
         @if (Auth::guest())
             <li><a href="{{route('login')}}">Ingresar</a></li>
@@ -15,11 +17,11 @@
             <li><a href="{{route('acercaDe')}}">Personas involucradas</a></li>
     @endsection
     @section('content')
-        <h2 id="bienvenido">¡Bienvenido a Sairco!</h2><br/>
+        <h2 id="bienvenido">¡Bienvenido a SAIRCO!</h2><br/>
 
         <p>
             <div class="texto">
-                El Sistema de Asignación Inteligente de Recursos de COmputo (SAIRCO) es un sistema creado por
+                El Sistema de Asignación Inteligente de Recursos de CÓmputo (SAIRCO) es un sistema creado por
                 integrantes de la Universidad Tecnológica de Bolívar que le permitirá a la misma gestionar todas las reservas de
                 equipos y salones de cómputo, teniendo en cuenta las necesidades de los usuarios: día y hora,
                 <strong>hardware y software</strong> que vaya a necesitar de una manera ágil, óptima y segura. Permite

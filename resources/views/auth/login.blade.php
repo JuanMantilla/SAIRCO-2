@@ -1,5 +1,7 @@
 @extends('layout')
-
+    @section ('title')
+        Login
+    @endsection
     @section ('menu')
         @if (Auth::guest())
             <li><a href="{{route('login')}}">Ingresar</a></li>

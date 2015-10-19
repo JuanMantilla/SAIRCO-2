@@ -76,6 +76,12 @@ Route::get('panelDeUsuario',[
     ]
 );
 
+Route::get('mostrar',[
+        'uses'=>'mostrar@index',
+        'as'  => 'mostrar'
+    ]
+);
+
 Route::get('/view-Panel-de-administrador/agregarEquipo',[
         'uses'=>'agregarEquipoController@index',
         'as'  => 'viewAgregarEquipo'
