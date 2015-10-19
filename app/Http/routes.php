@@ -24,6 +24,7 @@ Route::get('login', [
      'as' => 'login'
 ]);
 Route::post('login', 'Auth\AuthController@postLogin');
+
 Route::get('logout', [
     'uses'=>'Auth\AuthController@getLogout',
     'as'  =>'logout'
@@ -54,6 +55,7 @@ Route::get('/JuanMartinez',[
         'as'  => 'JuanMartinez'
     ]
 );
+
 Route::get('/JuanMantilla',[
         'uses'=>'HomeController@JuanMantilla',
         'as'  => 'JuanMantilla'
@@ -76,9 +78,27 @@ Route::get('panelDeUsuario',[
     ]
 );
 
-Route::get('mostrar',[
-        'uses'=>'mostrar@index',
-        'as'  => 'mostrar'
+Route::get('/view-Panel-de-administrador/agregarEquipo',[
+        'uses'=>'agregarEquipoController@index',
+        'as'  => 'viewAgregarEquipo'
+    ]
+);
+
+Route::get('/view-Panel-de-administrador/agregarSalon',[
+        'uses'=>'agregarSalonController@index',
+        'as'  => 'viewAgregarSalon'
+    ]
+);
+
+Route::get('/view-Panel-de-administrador/eliminarSalon',[
+        'uses'=>'eliminarSalonController@index',
+        'as'  => 'viewEliminarSalon'
+    ]
+);
+
+Route::get('/view-Panel-de-administrador/eliminarEquipo',[
+        'uses'=>'eliminarEquipoController@index',
+        'as'  => 'viewEliminarEquipo'
     ]
 );
 
@@ -87,14 +107,54 @@ Route::get('/view-Panel-de-administrador/agregarEquipo',[
         'as'  => 'viewAgregarEquipo'
     ]
 );
-Route::post('/view-Panel-de-administrador/agregarEquipo', [
-    'uses'=>'agregarEquipoController@postEquipo',
-    'as'  => 'agregarEquipo'
-]);
 
 
 Route::get('/view-Panel-de-administrador/obtenerInformacion',[
         'uses'=>'viewObtenerInformacion@index',
         'as'  => 'obtenerInformacion'
+    ]
+);
+
+Route::get('/view-Panel-de-administrador/actualizarRecurso',[
+        'uses'=>'actualizarRecursoController@index',
+        'as'  => 'actualizarRecurso'
+    ]
+);
+Route::post('/view-Panel-de-administrador/actualizarRecurso', 'actualizarRecursoController@update');
+
+//Route::resource('/view-Panel-de-administrador/actualizarRecurso', 'actualizarRecursoController');
+
+Route::post('/view-Panel-de-administrador/equipoActualizado',[
+        'uses'=>'equipoActualizadoController@update',
+        'as'  => 'equipoActualizado'
+    ]
+);
+
+Route::post('/view-Panel-de-administrador/salonActualizado',[
+        'uses'=>'salonActualizadoController@update',
+        'as'  => 'salonActualizado'
+    ]
+);
+
+Route::get('/reservarEquipo',[
+        'uses'=>'reservarEquipoController@index',
+        'as'  => 'reservarEquipo'
+    ]
+);
+Route::post('/reservarEquipo',[
+        'uses'=>'reservarEquipoController@store',
+        'as'  => 'reservarEquipo'
+    ]
+);
+
+Route::get('/cancelarReserva',[
+        'uses'=>'cancelarReservaController@index',
+        'as'  => 'cancelarReserva'
+    ]
+);
+
+Route::post('/cancelarReserva',[
+        'uses'=>'cancelarReservaController@update',
+        'as'  => 'cancelarReserva'
     ]
 );

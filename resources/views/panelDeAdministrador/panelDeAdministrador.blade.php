@@ -39,7 +39,6 @@
                             <a href="{{route('panelDeAdministrador')}}">
                                 Panel de administrador
                             </a>
-
                         </li>
                         <li>
                             <a href="#">Cambiar tus datos</a>
@@ -48,16 +47,16 @@
                             <a href="{{route('viewAgregarEquipo')}}">Agregar equipo de computo</a>
                         </li>
                         <li>
-                            <a href="#">Agregar salon de computo</a>
+                            <a href="{{route('viewAgregarSalon')}}">Agregar salon de computo</a>
                         </li>
                         <li>
-                            <a href="#">Eliminar equipo de computo </a>
+                            <a href="{{route('viewEliminarEquipo')}}">Eliminar equipo de computo </a>
                         </li>
                         <li>
-                            <a href="#">Eliminar salon de computo</a>
+                            <a href="{{route('viewEliminarSalon')}}">Eliminar salon de computo</a>
                         </li>
                         <li>
-                            <a href="#">Actualizar horarios</a>
+                            <a href="{{route('actualizarRecurso')}}">Actualizar recursos</a>
                         </li>
                         <li>
                             <a href="{{route('obtenerInformacion')}}">Obtener informacion</a>

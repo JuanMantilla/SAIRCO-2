@@ -24,4 +24,7 @@ class HomeController extends Controller
     public function JuanMantilla(){
         return view ('acercaDe/JuanMantilla');
     }
+    public function Mostrar(){
+        return view ('acercaDe/Mostrar');
+    }
 }

@@ -1,4 +1,7 @@
 @extends('layout')
+@section('link')
+    {{route('home')}}
+@endsection
     @section ('title')
         Login
     @endsection

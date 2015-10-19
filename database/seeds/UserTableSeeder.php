@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class UserTableSeeder extends Seeder
 {
     /**
@@ -13,13 +14,11 @@ class UserTableSeeder extends Seeder
     {
 
         factory(App\User::class)->create([
-            'name' => 'Juan',
+            'name' => 'Juan Mantilla',
             'email'=> 't00024526@utbvirtual.edu.co',
             'role'=> 'admin',
             'password' => bcrypt('admin')
 
         ]);
-
-        factory(App\User::class, 49)->create();
     }
 }
