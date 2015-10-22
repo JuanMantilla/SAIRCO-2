@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/panelDeAdministrador/agregarEquipo.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/home.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/app/Http/Controllers/Auth/AuthController.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/acercaDe/acercaDeLayout.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/acercaDe/EdwinPuertas.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/layout.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/acercaDe/JuanMartinez.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/acercaDe/acercaDe.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/auth/register.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/acercaDe/JuanMantilla.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/resources/views/auth/login.blade.php</file>
+            <file>file:/D:/Tesis/SAIRCO-2/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/resources/views/acercaDe/EdwinPuertas.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/acercaDe/JuanMantilla.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/acercaDe/JuanMartinez.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/acercaDe/acercaDeLayout.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/auth/login.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/auth/register.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/home.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/layout.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/panelDeAdministrador/actualizarRecurso.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/panelDeUsuario/cancelarReserva.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/panelDeUsuario/panelDeUsuario.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/views/panelDeUsuario/reservarEquipo.blade.php" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
