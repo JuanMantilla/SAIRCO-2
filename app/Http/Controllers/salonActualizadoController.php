@@ -73,7 +73,9 @@ class salonActualizadoController extends Controller
     {
         DB::table('salones')
             ->where('id', $request->id)
-            ->update(['name' => $request->name,
+            ->update([
+                'estado'=>$request->estado,
+                'name' => $request->name,
                 'ubicacion' => $request->ubicacion]);
         return view('panelDeAdministrador\salonActualizado');
     }

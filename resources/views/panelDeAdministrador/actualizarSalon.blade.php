@@ -4,7 +4,7 @@
 @endsection
 
 @section('contenidoAdministrador')
-    <form class="form-horizontal" role="form" method="POST" action="{{route('equipoActualizado')}}">
+    <form class="form-horizontal" role="form" method="POST" action="{{route('salonActualizado')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="form-group">
@@ -21,6 +21,12 @@
                 <input type="text" class="form-control" name="name" value="{{ old('name') }}">
             </div>
             Nuevo nombre del salón
+            <br/>
+            <br/>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="estado" value="{{ old('estado') }}">
+            </div>
+            Nuevo estado del salon
             <br/>
             <br/>
             <div class="col-md-6">

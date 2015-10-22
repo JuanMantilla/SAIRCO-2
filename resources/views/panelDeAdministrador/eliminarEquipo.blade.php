@@ -1,6 +1,8 @@
-<!DOCTYPE html>
-<h1>Eliminados todos los equipos</h1>
-<a href="{{route('panelDeAdministrador')}}">
-    Volver
-</a>
-</html>
+@extends('panelDeAdministrador/panelDeAdministradorLayout')
+@section ('title')
+    Equipos eliminados
+@endsection
+
+@section('contenidoAdministrador')
+    <h2>Eliminados todos los equipos</h2>
+@endsection

@@ -15,15 +15,10 @@
             echo "<strong> ID </strong>del equipo: ".$resultados->id."<br/>";
             echo "<strong>Nombre </strong>del equipo: ".$resultados->name."<br/>";
             echo "<strong>Ubicación </strong>del equipo: ".$resultados->ubicacion."<br/>";
+            echo "<strong>Horario </strong>del equipo: ".$resultados->horario."<br/>";
             echo "<hr>";
 
             }
     }
     ?>
-    <br/>
-    <br/>
-    <a href="{{route('panelDeAdministrador')}}">
-        Volver
-    </a>
-
-    @endsection
+@endsection

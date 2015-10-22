@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<?php
-/**
- * Created by PhpStorm.
- * User: Administrador
- * Date: 14/10/2015
- * Time: 8:15 PM
- *
- */
+@extends('panelDeAdministrador/panelDeAdministradorLayout')
+@section ('title')
+    Salones agregados
+@endsection
 
-foreach ($hardware as $resultados) {
-    echo "nombre del salon".$resultados->name;
-    echo "      ";
-}
-?>
-<br/>
-<br/>
-<a href="{{route('panelDeAdministrador')}}">
-    Volver
-</a>
-</html>
+@section('contenidoAdministrador')
+    <h1>Salones en la base de datos:</h1>
+
+    <?php
+    foreach ($salones as $resultados) {
+
+        echo "<strong> ID </strong>del salón: ".$resultados->id."<br/>";
+        echo "<strong>Nombre </strong>del salón: ".$resultados->name."<br/>";
+        echo "<strong>Ubicación </strong>del salón: ".$resultados->ubicacion."<br/>";
+        echo "<strong>Horario </strong>del salón: ".$resultados->horario."<br/>";
+        echo "<strong>Estado </strong>del salón: ".$resultados->estado."<br/>";
+        echo "<hr>";
+    }
+    ?>
+@endsection

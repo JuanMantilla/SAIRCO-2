@@ -1,6 +1,8 @@
-<!DOCTYPE html>
-<h1>Equipo actualizado</h1>
-<a href="{{route('panelDeAdministrador')}}">
-    Volver
-</a>
-</html>
+@extends('panelDeAdministrador/panelDeAdministradorLayout')
+@section ('title')
+    Equipo actualizado
+@endsection
+
+@section('contenidoAdministrador')
+    <h2>Equipo actualizado</h2>
+@endsection

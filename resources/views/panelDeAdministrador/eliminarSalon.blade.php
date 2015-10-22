@@ -1,6 +1,8 @@
-<!DOCTYPE html>
-<h1>Eliminados todos los salones</h1>
-<a href="{{route('panelDeAdministrador')}}">
-    Volver
-</a>
-</html>
+@extends('panelDeAdministrador/panelDeAdministradorLayout')
+@section ('title')
+    Salones eliminados
+@endsection
+
+@section('contenidoAdministrador')
+    <h2>Eliminados todos los salones</h2>
+@endsection

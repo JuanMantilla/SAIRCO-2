@@ -43,7 +43,7 @@ class agregarSalonController extends Controller
         }
 
         $salones= DB::select('select * from salones');
-        return View('panelDeAdministrador\mostrar',['hardware' => $salones]);
+        return View('panelDeAdministrador\mostrar',['salones' => $salones]);
     }
 
     /**

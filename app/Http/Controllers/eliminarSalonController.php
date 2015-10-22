@@ -16,7 +16,8 @@ class eliminarSalonController extends Controller
      */
     public function index()
     {
-        DB::table('salones')->delete();
+        DB::table('salones')->truncate();
+
         return view('panelDeAdministrador\eliminarSalon');
     }
 

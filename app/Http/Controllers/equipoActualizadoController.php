@@ -73,7 +73,7 @@ class equipoActualizadoController extends Controller
     {
         DB::table('equipos')
             ->where('id', $request->id)
-            ->update(['hardwareId' => $request->hardwareId,
+            ->update(['estado' => $request->estado,
                       'name' => $request->name,
                       'ubicacion' => $request->ubicacion]);
         return view('panelDeAdministrador\equipoActualizado');

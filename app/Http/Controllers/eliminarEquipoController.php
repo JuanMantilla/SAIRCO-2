@@ -16,7 +16,7 @@ class eliminarEquipoController extends Controller
      */
     public function index()
     {
-        DB::table('equipos')->delete();
+        DB::table('equipos')->truncate();
         return view('panelDeAdministrador\eliminarEquipo');
     }
 
