@@ -1,5 +1,9 @@
 @extends('panelDeUsuario/panelDelUsuarioLayout')
-@section('content')
+@section ('title')
+    Reservar equipo
+@endsection
+
+@section('contenidoUsuario')
     <form role="form" method="POST" action="{{route('reservarEquipo')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         ¿Para cuando necesitas el equipo?

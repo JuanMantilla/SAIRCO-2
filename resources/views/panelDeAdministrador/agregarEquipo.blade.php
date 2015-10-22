@@ -1,21 +1,29 @@
-<!DOCTYPE html>
-        <?php
-        /**
-         * Created by PhpStorm.
-         * User: Administrador
-         * Date: 14/10/2015
-         * Time: 8:15 PM
-         *
-         */
+@extends('panelDeAdministrador/panelDeAdministradorLayout')
+@section ('title')
+    Equipos agregados
+@endsection
 
-        foreach ($equipo as $resultados) {
-            echo "nombre del equipo".$resultados->name;
-            echo "      ";
-        }
-                ?>
-<br/>
-<br/>
-<a href="{{route('panelDeAdministrador')}}">
+@section('contenidoAdministrador')
+    <h2>Equipos agregados:</h2>
+    <?php
+            $centinela=0;
+
+    foreach ($equipo as $resultados) {
+        $centinela++;
+        if($centinela){
+
+            echo "<strong> ID </strong>del equipo: ".$resultados->id."<br/>";
+            echo "<strong>Nombre </strong>del equipo: ".$resultados->name."<br/>";
+            echo "<strong>Ubicación </strong>del equipo: ".$resultados->ubicacion."<br/>";
+            echo "<hr>";
+
+            }
+    }
+    ?>
+    <br/>
+    <br/>
+    <a href="{{route('panelDeAdministrador')}}">
         Volver
-</a>
-</html>
+    </a>
+
+    @endsection

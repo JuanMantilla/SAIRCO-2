@@ -21,7 +21,7 @@
 @endsection
 @section('content')
     <div class="centrado">
-        @yield('contenido')
+        @yield('contenidoUsuario')
     </div>
 
 @endsection

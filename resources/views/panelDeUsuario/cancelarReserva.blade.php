@@ -1,9 +1,9 @@
 @extends('panelDeUsuario/panelDelUsuarioLayout')
 @section ('title')
-    Panel del usuario
+    Cancelar reserva
 @endsection
 
-@section('contenido')
+@section('contenidoUsuario')
 
     <form role="form" method="POST" action="{{route('cancelarReserva')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">

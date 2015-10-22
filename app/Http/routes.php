@@ -66,7 +66,7 @@ Route::get('/EdwinPuertas',[
         'as'  => 'EdwinPuertas'
     ]
 );
-Route::get('/view-Panel-de-administrador',[
+Route::get('/Panel_de_administrador',[
     'uses'=>'panelDeAdministradorController@index',
     'as'  => 'panelDeAdministrador'
 ]
@@ -78,59 +78,59 @@ Route::get('panelDeUsuario',[
     ]
 );
 
-Route::get('/view-Panel-de-administrador/agregarEquipo',[
+Route::get('/agregarEquipo',[
         'uses'=>'agregarEquipoController@index',
         'as'  => 'viewAgregarEquipo'
     ]
 );
 
-Route::get('/view-Panel-de-administrador/agregarSalon',[
+Route::get('/agregarSalon',[
         'uses'=>'agregarSalonController@index',
         'as'  => 'viewAgregarSalon'
     ]
 );
 
-Route::get('/view-Panel-de-administrador/eliminarSalon',[
+Route::get('/eliminarSalon',[
         'uses'=>'eliminarSalonController@index',
         'as'  => 'viewEliminarSalon'
     ]
 );
 
-Route::get('/view-Panel-de-administrador/eliminarEquipo',[
+Route::get('/eliminarEquipo',[
         'uses'=>'eliminarEquipoController@index',
         'as'  => 'viewEliminarEquipo'
     ]
 );
 
-Route::get('/view-Panel-de-administrador/agregarEquipo',[
+Route::get('/agregarEquipo',[
         'uses'=>'agregarEquipoController@index',
         'as'  => 'viewAgregarEquipo'
     ]
 );
 
 
-Route::get('/view-Panel-de-administrador/obtenerInformacion',[
+Route::get('/obtenerInformacion',[
         'uses'=>'viewObtenerInformacion@index',
         'as'  => 'obtenerInformacion'
     ]
 );
 
-Route::get('/view-Panel-de-administrador/actualizarRecurso',[
+Route::get('/actualizarRecurso',[
         'uses'=>'actualizarRecursoController@index',
         'as'  => 'actualizarRecurso'
     ]
 );
-Route::post('/view-Panel-de-administrador/actualizarRecurso', 'actualizarRecursoController@update');
+Route::post('/actualizarRecurso', 'actualizarRecursoController@update');
 
 //Route::resource('/view-Panel-de-administrador/actualizarRecurso', 'actualizarRecursoController');
 
-Route::post('/view-Panel-de-administrador/equipoActualizado',[
+Route::post('/equipoActualizado',[
         'uses'=>'equipoActualizadoController@update',
         'as'  => 'equipoActualizado'
     ]
 );
 
-Route::post('/view-Panel-de-administrador/salonActualizado',[
+Route::post('/salonActualizado',[
         'uses'=>'salonActualizadoController@update',
         'as'  => 'salonActualizado'
     ]

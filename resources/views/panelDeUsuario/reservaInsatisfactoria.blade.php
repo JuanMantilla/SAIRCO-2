@@ -1,8 +1,8 @@
 @extends('panelDeUsuario/panelDelUsuarioLayout')
 @section ('title')
-    Panel del usuario
+    Reserva no realizada
 @endsection
 
-@section('contenido')
+@section('contenidoUsuario')
     <h2 id="reserva">No hay equipos que cumplan tus requerimientos, intenta con otros.</h2><br/>
 @endsection

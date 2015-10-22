@@ -14,16 +14,14 @@ class agregarEquipoController extends Controller
     public function index()
     {
         $hardware= DB::select('select * from hardware');
-        $software= DB::select('select * from softwares');
-
+        $centinela=false;
         foreach ($hardware as $resultados) {
-            $nombre = $resultados->NAME;
             $nombreSalon= "A1";
             $nombreSalon= $nombreSalon." ".substr($resultados->NAME,-10, 7);
             $nombreEquipo= substr($resultados->NAME,-2, 2);
 
-            if ($resultados->NAME = substr($resultados->NAME,-10, 4)=="SALA"){
-
+            if ($resultados->NAME = substr($resultados->NAME,-10, 4)=="SALA" && $centinela==false){
+                $$centinela=true;
                 $fecha = date_create('2015-01-01');
                 $horario = $fecha->format('Y-m-d H:i');
                 $hora = (int)substr ($horario, -5, 2);
@@ -32,7 +30,6 @@ class agregarEquipoController extends Controller
                     $hora = (int)substr ($horario, -5, 2);
                     $horario = $fecha->format('Y-m-d H:i');
                     if($hora>6 && $hora <21){
-
                         DB::insert('insert into equipos (name, hardwareId, ubicacion, horario, estado) values (?, ?, ?,?,?)', [$nombreEquipo, $resultados->ID, $nombreSalon, $horario, 0]);
                     }
 
@@ -42,6 +39,8 @@ class agregarEquipoController extends Controller
         }
 
         $equipos= DB::select('select * from equipos');
+        //$count = App\Equipos::where('active', 1)->count();
+        //$cantidades=$cantidades;
         return View('panelDeAdministrador\agregarEquipo',['equipo' => $equipos]);
     }
 

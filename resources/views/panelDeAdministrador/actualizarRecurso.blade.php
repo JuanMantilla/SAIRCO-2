@@ -1,17 +1,22 @@
-<!DOCTYPE html>
+@extends('panelDeAdministrador/panelDeAdministradorLayout')
+@section ('title')
+    Actualizar recurso
+@endsection
 
-    <head>
-    <meta char set="UTF-8"/>
-    </head>
+@section('contenidoAdministrador')
     <form class="form-horizontal" role="form" method="POST" action="{{route('actualizarRecurso')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="form-group">
             <label class="col-md-4 control-label">¿Qué recuso quiere actualizar?</label>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="recurso" value="{{ old('recurso') }}">
-            </div>
+
         </div>
+        <div class="centrado">
+            <input type="radio" name="recurso" value="equipo" checked>Equipo
+            <br>
+            <input type="radio" name="recurso" value="salon">Salón
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
@@ -21,4 +26,5 @@
             </div>
         </div>
     </form>
-</html>
+
+    @endsection
