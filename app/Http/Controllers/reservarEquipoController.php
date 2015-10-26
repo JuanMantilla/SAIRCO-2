@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -42,10 +43,21 @@ class reservarEquipoController extends Controller
     public function store(Request $request)
     {
         //Centinela me ayuda a saber si se hizo satisfactoriamente la reserva o no.
-        //Además, asegura que se asigne la reserva a sólo un equipo nada más.
+        //AdemÃ¡s, asegura que se asigne la reserva a sÃ³lo un equipo nada mï¿½s.
         $centinela=false;
+        $contador= 0;
         //guarda todos los equipos que tengan le horario ingresada por el usuario en la variable $equipos disponibles
-        $equiposDisponibles = DB::select('select * from equipos where horario= ?', [$request->fecha]);
+        $equiposOcs= DB::select('select * from hardware ');
+        $equipos= DB::select('select * from equipos ');
+        foreach($equipos as $aux){
+            $contador++;
+            $equipo = App\Equipo::find($contador);
+            foreach ($equipo->horario as $fecha) {
+                if ($fecha == $request->fecha && $fecha->pivot->estado == 0) {
+                    //$equiposDisponibles = add($equipo);
+                }
+            }
+        }
         //recorro todos los equipos dentro de la variable $equipos disponibles
         foreach ($equiposDisponibles as $resultado) {
             //Le asigno a la variable $software el hardware id del euqipo que tiene en ese momento
@@ -59,11 +71,11 @@ class reservarEquipoController extends Controller
         foreach($equiposDisponibles as $resultados){
             //estado=1:reservado , estado=0: disponible
             if($resultados->estado == 0){
-                //Recorro todos los equipos dentro de la tabla de ocs que están dentro de la variable $softwares
+                //Recorro todos los equipos dentro de la tabla de ocs que estï¿½n dentro de la variable $softwares
                 foreach($softwares as $variable){
-                    //Aseguro que intrese a esta condición sólo cuando el software del equipo es igual al software que el usuario especificó
+                    //Aseguro que intrese a esta condiciï¿½n sï¿½lo cuando el software del equipo es igual al software que el usuario especificï¿½
                     if(($variable->NAME == $request->software1)){
-                        //Pregunto si $centinela es falso, esto me asegura de que sólo se asigne 1 equipo por reserva
+                        //Pregunto si $centinela es falso, esto me asegura de que sï¿½lo se asigne 1 equipo por reserva
                         if($centinela==false){
                             //Cambio el valor de $centinela
                             $centinela=true;

@@ -11,6 +11,9 @@ class Equipo extends Model
      *
      * @var string
      */
-    protected $table = 'equipo';
-    protected $fillable = ['name', 'ubicacion', 'horario', 'hardware', 'software'];
+    protected $table = 'equipos';
+    protected $fillable = ['name', 'hardwareId', 'ubicacion', 'horario', 'estado'];
+    public function horario(){
+        return $this->belongsToMany('App\Horario')->withPivot('equipo_id', 'horario_id', 'estado');
+    }
 }

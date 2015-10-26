@@ -13,12 +13,23 @@ class UserTableSeeder extends Seeder
     public function run()
     {
 
-        factory(App\User::class)->create([
+        DB::table('users')->insert([
             'name' => 'Juan Mantilla',
             'email'=> 't00024526@utbvirtual.edu.co',
             'role'=> 'admin',
             'password' => bcrypt('admin')
-
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Edwin Puertas',
+            'email'=> 'epuerta@unitecnologica.edu.co',
+            'role'=> 'admin',
+            'password' => bcrypt('admin')
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Juan Martinez',
+            'email'=> 'jcmartinezs@unitecnologica.edu.co',
+            'role'=> 'admin',
+            'password' => bcrypt('admin')
         ]);
     }
 }

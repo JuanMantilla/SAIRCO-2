@@ -103,7 +103,7 @@ Route::get('/eliminarEquipo',[
 );
 
 Route::get('/agregarEquipo',[
-        'uses'=>'agregarEquipoController@index',
+        'uses'=>'agregarEquipoController@postEquipo',
         'as'  => 'viewAgregarEquipo'
     ]
 );

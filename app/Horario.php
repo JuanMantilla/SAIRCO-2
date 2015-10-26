@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Horario extends Model
 {
-    protected $table = 'horario';
+    protected $table = 'horarios';
+    protected $fillable = ['fecha'];
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['anio', 'mes', 'dia', 'hora', 'minuto'];
+    public function equipos()
+    {
+        return $this->belongsToMany('App\Equipo');
+        return $this->belongsToMany('App\Equipo')->withPivot('equipo_id', 'horario_id', 'estado');
+    }
+
 }
