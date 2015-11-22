@@ -74,7 +74,7 @@ class actualizarRecursoController extends Controller
         $recursoActualizar=$request->recurso;
         if($recursoActualizar=='equipo' || $recursoActualizar=='Equipo' ){
             {return view ('panelDeAdministrador\actualizarEquipo');}
-                //return Route::post($request,'panelDeAdministrador\actualizarEquipo');}
+            //return Route::post($request,'panelDeAdministrador\actualizarEquipo');}
         }
         elseif($recursoActualizar=='salon' || $recursoActualizar=='Salon' || $recursoActualizar=='Salón'){
             {return view ('panelDeAdministrador\actualizarSalon');}

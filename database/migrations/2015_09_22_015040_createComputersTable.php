@@ -12,24 +12,7 @@ class CreateComputersTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipo', function (Blueprint $table) {
-            $table->increments('id');
-            $table->date('fechaFabricacion');
-            $table->string('horario');
-            $table->string('ubicacion');
-            $table->string('hardware');
-            $table->string('software');
-            $table->string('name')->unique();
-            $table->rememberToken();
-            $table->timestamps();
-
-        });
-/*
-        Schema::table('equipo', function($table)
-        {
-            $table->foreign('name')
-                ->references('NAME')->on('hardware');
-        });*/
+        //
     }
 
     /**
@@ -39,6 +22,6 @@ class CreateComputersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('equipo');
+        //
     }
 }
