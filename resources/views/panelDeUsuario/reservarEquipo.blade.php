@@ -34,7 +34,7 @@
         <input type="checkbox" name="software2" value="XAMPP"> XAMPP
         <br>
 
-        <input type="submit">
+        <input type="submit" name="Enviar">
     </form>
     <hr>
 @endsection

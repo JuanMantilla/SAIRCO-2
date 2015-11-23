@@ -4,21 +4,13 @@
 @endsection
 
 @section('contenidoAdministrador')
-    <h2>Equipos agregados:</h2>
+
     <?php
-            $centinela=0;
+    if($valor==1){
 
-    foreach ($equipo as $resultados) {
-        $centinela++;
-        if($centinela){
+            echo "<h3>¡Equipos agregados exitosamente!</h3>";
 
-            echo "<strong> ID </strong>del equipo: ".$resultados->id."<br/>";
-            echo "<strong>Nombre </strong>del equipo: ".$resultados->name."<br/>";
-            echo "<strong>Ubicación </strong>del equipo: ".$resultados->ubicacion."<br/>";
-            echo "<strong>Horario </strong>del equipo: ".$resultados->horario."<br/>";
-            echo "<hr>";
-
-            }
     }
+    else echo "Ya se agregaron todos los equipos; cuando se agreguen más equipos a la base de datos por medio de OCS, asócielos a <strong>SAIRCO</strong> por medio del link 'agregar eqipos'.";
     ?>
 @endsection

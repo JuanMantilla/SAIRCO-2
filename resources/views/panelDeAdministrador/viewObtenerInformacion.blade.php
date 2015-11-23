@@ -4,29 +4,30 @@
 @endsection
 
 @section('contenidoAdministrador')
-    <h1>Obtener informacion</h1>
-    <h3>Equipos en la base de datos:</h3>
+    <h1>Obtener información</h1>
+    <h3><strong>Equipos en la base de datos:</strong></h3>
         <?php
-        foreach ($equipos as $resultados) {
+        if ($equipos != 0){
 
-                echo "<strong> ID </strong>del equipo: ".$resultados->id."<br/>";
-                echo "<strong>Nombre </strong>del equipo: ".$resultados->name."<br/>";
-                echo "<strong>Ubicación </strong>del equipo: ".$resultados->ubicacion."<br/>";
-                echo "<strong>Horario </strong>del equipo: ".$resultados->horario."<br/>";
-                echo "<strong>Estado </strong>del equipo: ".$resultados->estado."<br/>";
-                echo "<hr>";
-        }
+            foreach ($equipos as $equipo) {
+
+                    echo "<strong> ID </strong>del equipo: ".$equipo->id."<br/>";
+                    echo "<strong>Nombre </strong>del equipo: ".$equipo->name."<br/>";
+                    echo "<strong>Ubicación </strong>del equipo: ".$equipo->ubicacion."<br/>";
+                    echo "<hr>";
+            }
+        }else echo "No hay equipos en la base de datos"
         ?>
-    <h3>Salones en la base de datos:</h3>
+    <h3><strong>Salones en la base de datos:</strong></h3>
     <?php
-    foreach ($salones as $resultados) {
+    if($salones != 0){
+        foreach ($salones as $salon) {
 
-        echo "<strong> ID </strong>del salón: ".$resultados->id."<br/>";
-        echo "<strong>Nombre </strong>del salón: ".$resultados->name."<br/>";
-        echo "<strong>Ubicación </strong>del salón: ".$resultados->ubicacion."<br/>";
-        echo "<strong>Horario </strong>del salón: ".$resultados->horario."<br/>";
-        echo "<strong>Estado </strong>del salón: ".$resultados->estado."<br/>";
-        echo "<hr>";
-    }
+            echo "<strong> ID </strong>del salón: ".$salon->id."<br/>";
+            echo "<strong>Nombre </strong>del salón: ".$salon->name."<br/>";
+            echo "<strong>Ubicación </strong>del salón: ".$salon->ubicacion."<br/>";
+            echo "<hr>";
+        }
+    }else echo "No hay salones en la base de datos"
     ?>
     @endsection

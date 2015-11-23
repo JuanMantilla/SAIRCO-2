@@ -26,12 +26,6 @@
             <div class="col-md-6">
                 <input type="text" class="form-control" name="estado" value="{{ old('estado') }}">
             </div>
-            Nuevo estado del salon
-            <br/>
-            <br/>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="ubicacion" value="{{ old('ubicacion') }}">
-            </div>
             Nueva ubicación del salón
 
         </div>

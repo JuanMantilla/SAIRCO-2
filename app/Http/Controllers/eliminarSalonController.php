@@ -17,7 +17,8 @@ class eliminarSalonController extends Controller
     public function index()
     {
         DB::table('salones')->truncate();
-
+        DB::table('controladorEquipos')
+            ->update(['horario' => 0]);
         return view('panelDeAdministrador\eliminarSalon');
     }
 

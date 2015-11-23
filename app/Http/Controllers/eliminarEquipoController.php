@@ -17,6 +17,8 @@ class eliminarEquipoController extends Controller
     public function index()
     {
         DB::table('equipos')->truncate();
+        DB::table('controladorEquipos')
+            ->update(['Agregar' => 0]);
         return view('panelDeAdministrador\eliminarEquipo');
     }
 

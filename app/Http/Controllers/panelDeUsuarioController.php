@@ -10,8 +10,8 @@ use App\Http\Controllers\Controller;
 class panelDeUsuarioController extends Controller
 {
     public function index(){
-        DB::table('equipos')
-            ->update(['estado' => 0]);
+        /*DB::table('equipos')
+            ->update(['estado' => 0]);*/
 
         return view('panelDeUsuario\panelDeUsuario');
     }

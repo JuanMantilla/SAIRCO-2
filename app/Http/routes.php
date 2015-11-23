@@ -136,6 +136,12 @@ Route::post('/salonActualizado',[
     ]
 );
 
+Route::get('/verReservas',[
+        'uses'=>'Auth\verReservasController@index',
+        'as'  => 'verReservas'
+    ]
+);
+
 Route::get('/reservarEquipo',[
         'uses'=>'reservarEquipoController@index',
         'as'  => 'reservarEquipo'

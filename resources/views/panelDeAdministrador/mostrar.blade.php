@@ -4,17 +4,13 @@
 @endsection
 
 @section('contenidoAdministrador')
-    <h1>Salones en la base de datos:</h1>
 
     <?php
-    foreach ($salones as $resultados) {
+    if($valor==1){
 
-        echo "<strong> ID </strong>del salón: ".$resultados->id."<br/>";
-        echo "<strong>Nombre </strong>del salón: ".$resultados->name."<br/>";
-        echo "<strong>Ubicación </strong>del salón: ".$resultados->ubicacion."<br/>";
-        echo "<strong>Horario </strong>del salón: ".$resultados->horario."<br/>";
-        echo "<strong>Estado </strong>del salón: ".$resultados->estado."<br/>";
-        echo "<hr>";
+        echo "<h3>¡Salones agregados exitosamente!</h3>";
+
     }
+    else echo "Ya se agregaron todos los salones; cuando se agreguen más salones a la base de datos por medio de OCS, asócielos a <strong>SAIRCO</strong> por medio del link 'enlazar' salones'.";
     ?>
 @endsection

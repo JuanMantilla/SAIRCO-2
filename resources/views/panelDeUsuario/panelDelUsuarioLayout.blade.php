@@ -16,8 +16,12 @@
         <a href="{{route('reservarEquipo')}}">Reserva un equipo</a>
     </li>
     <li>
+        <a href="{{route('verReservas')}}">Mis Reservas</a>
+    </li>
+    <li>
         <a href="{{route('cancelarReserva')}}">Cancela una reserva</a>
     </li>
+
 @endsection
 @section('content')
     <div class="centrado">
