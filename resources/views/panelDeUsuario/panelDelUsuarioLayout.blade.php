@@ -10,9 +10,6 @@
         <a href="{{route('panelDeUsuario')}}">Panel de usuario</a>
     </li>
     <li>
-        <a href="#">Cambia tus datos</a>
-    </li>
-    <li>
         <a href="{{route('reservarEquipo')}}">Reserva un equipo</a>
     </li>
     <li>
