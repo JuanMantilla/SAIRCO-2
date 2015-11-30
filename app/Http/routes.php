@@ -21,7 +21,7 @@ Route::get('/', [
 // Authentication routes...
 Route::get('login', [
     'uses'=>'Auth\AuthController@getLogin',
-     'as' => 'login'
+    'as' => 'login'
 ]);
 Route::post('login', 'Auth\AuthController@postLogin');
 
@@ -67,9 +67,9 @@ Route::get('/EdwinPuertas',[
     ]
 );
 Route::get('/Panel_de_administrador',[
-    'uses'=>'panelDeAdministradorController@index',
-    'as'  => 'panelDeAdministrador'
-]
+        'uses'=>'panelDeAdministradorController@index',
+        'as'  => 'panelDeAdministrador'
+    ]
 );
 
 Route::get('panelDeUsuario',[

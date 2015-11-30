@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 class eliminarEquipoController extends Controller
 {
     /**
@@ -21,7 +18,6 @@ class eliminarEquipoController extends Controller
             ->update(['Agregar' => 0]);
         return view('panelDeAdministrador\eliminarEquipo');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -31,7 +27,6 @@ class eliminarEquipoController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -42,7 +37,6 @@ class eliminarEquipoController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
@@ -53,7 +47,6 @@ class eliminarEquipoController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -64,7 +57,6 @@ class eliminarEquipoController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -76,7 +68,6 @@ class eliminarEquipoController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

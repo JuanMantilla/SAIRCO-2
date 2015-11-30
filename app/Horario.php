@@ -15,3 +15,4 @@ class Horario extends Model
      */
     protected $fillable = ['anio', 'mes', 'dia', 'hora', 'minuto'];
 }
+

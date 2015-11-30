@@ -66,14 +66,14 @@
                                         @endif
 
                                     </ul>
-                                    <input onclick="change();" class="btn btn-default" href="#menu-toggle" name="button" type="button" value="Ocultar menu" id="menu-toggle" >
+                                    <input onclick="change();" class="btn btn-default" href="#menu-toggle" name="button" type="button" value="Mostrar menu" id="menu-toggle" >
                                         <SCRIPT LANGUAGE="JavaScript">
 
                                             function change()
                                             {
                                                 var elem = document.getElementById("menu-toggle");
-                                                if (elem.value=="Ocultar menu") elem.value = "Mostrar menu";
-                                                else elem.value = "Ocutlar menu";
+                                                if (elem.value=="Mostrar menu") elem.value = "Ocultar menu";
+                                                else elem.value = "Mostrar menu";
                                             }
                                         </SCRIPT>
                                     <hr class="layout">

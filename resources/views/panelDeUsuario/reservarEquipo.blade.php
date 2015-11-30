@@ -22,19 +22,38 @@
         </script>
         Selecciona el hardware que necesitas:
         <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Procesador intel i7 de 2.4 Ghz
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Procesador i5 de 3.3 Ghz
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Base de datos de Oracle
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> 2 GB of ram
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Puerto USB 2.0
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Puerto serial
+        <br>
         <input type="hidden" name="usuario" value="{{ Auth::user()->name }}">
-        <input type="checkbox" name="procesador" value="Intel(R) Core(TM) i5-2500 CPU @ 3.30GHz"> Intel(R) Core(TM) i5-2500 CPU @ 3.30GHz de 64 bits
-        <br>
-        <input type="checkbox" name="ram" value="4096"> 4GB de ram
-        <br>
         Selecciona el software que necesitas:
         <br>
-        <input type="checkbox" name="software1" value="Google Chrome"> Google Chrome
+        <input type="checkbox" name="software1" value="Google Chrome"> Navegador de internet
         <br>
-        <input type="checkbox" name="software2" value="XAMPP"> XAMPP
+        <input type="checkbox" name="software2" value="Microsoft Office"> Matlab
         <br>
-
-        <input type="submit" name="Enviar">
+        <input type="checkbox" name="software1" value="Google Chrome"> Microsoft Office
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Compilador de C++
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Compilador de python
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Compilador de Java
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Máquinas virtuales
+        <br>
+        <input type="checkbox" name="software1" value="Google Chrome"> Base de datos de Oracle
+        <br>
+        <input type="submit" name="">
     </form>
     <hr>
 @endsection

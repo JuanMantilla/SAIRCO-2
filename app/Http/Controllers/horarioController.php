@@ -15,10 +15,10 @@ class horarioController extends Controller
      */
     public function index()
     {
-        $fecha = date_create('2015-01-01');
+        $fecha = date_create('2016-01-01');
         $result = $fecha->format('Y-m-d H:i');
         $hora = (int)substr ($result, -5, 2);
-        for ($i=0;$i<24;$i++){
+        for ($i=0;$i<168;$i++){
             date_add($fecha, date_interval_create_from_date_string('1 hour'));
             $hora = (int)substr ($result, -5, 2);
             $result = $fecha->format('Y-m-d H:i');

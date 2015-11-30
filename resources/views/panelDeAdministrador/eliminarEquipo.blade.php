@@ -4,5 +4,5 @@
 @endsection
 
 @section('contenidoAdministrador')
-    <h2>Eliminados todos los equipos</h2>
+    <h2>Equipos eliminados</h2>
 @endsection
