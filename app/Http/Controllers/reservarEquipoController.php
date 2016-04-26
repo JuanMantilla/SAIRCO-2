@@ -42,9 +42,9 @@ class reservarEquipoController extends Controller
     public function store(Request $request)
     {
         //Centinela me ayuda a saber si se hizo satisfactoriamente la reserva o no.
-        //Además, asegura que se asigne la reserva a sólo un equipo nada más.
+        //Ademas, asegura que se asigne la reserva a sï¿½lo un equipo.
         $centinela=false;
-        //guarda todos los equipos que tengan le horario ingresada por el usuario en la variable $equipos disponibles
+        //guarda todos los equipos que tengan el horario ingresado por el usuario en la variable $equipos disponibles
         $equiposDisponibles = DB::select('select * from equipos where horario= ?', [$request->fecha]);
         //recorro todos los equipos dentro de la variable $equipos disponibles
         foreach ($equiposDisponibles as $resultado) {
@@ -59,21 +59,27 @@ class reservarEquipoController extends Controller
         foreach($equiposDisponibles as $resultados){
             //estado=1:reservado , estado=0: disponible
             if($resultados->estado == 0){
-                //Recorro todos los equipos dentro de la tabla de ocs que están dentro de la variable $softwares
+                //Recorro todos los equipos dentro de la tabla de ocs que estï¿½n dentro de la variable $softwares
                 foreach($softwares as $variable){
-                    //Aseguro que intrese a esta condición sólo cuando el software del equipo es igual al software que el usuario especificó
+                    //Aseguro que ingrese a esta condiciï¿½n sï¿½lo cuando el software del equipo es igual al software que el usuario especificï¿½
                     if(($variable->NAME == $request->software1)){
-                        //Pregunto si $centinela es falso, esto me asegura de que sólo se asigne 1 equipo por reserva
+                        //Pregunto si $centinela es falso, esto me asegura de que sï¿½lo se asigne 1 equipo por reserva
                         if($centinela==false){
                             //Cambio el valor de $centinela
                             $centinela=true;
                             //Inserto la reserva en la tabla de reservas
                             DB::insert('insert into reservas (usuario, fecha, ubicacion, equipo, estado) values (?, ?, ?, ?, ?)', [$request->usuario, $request->fecha, $resultados->ubicacion,$resultados->name, 1 ]);
                                //Actualizo el
+                                $numeroDeReservas=$resultados->nroReservas;
+                                $numeroDeReservasActualizado=$numeroDeReservas+1;
                                 DB::table('equipos')
                                 ->where('hardwareId', $resultados->hardwareId)
                                 ->where('horario', $request->fecha)
                                 ->update(['estado' => 1]);
+                                DB::table('equipos')
+                                ->where('hardwareId', $resultados->hardwareId)
+                                ->where('horario', $request->fecha)
+                                ->update(['nroReservas' =>$numeroDeReservasActualizado]);
                         }
                     }
                 }

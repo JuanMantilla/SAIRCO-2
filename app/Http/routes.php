@@ -10,7 +10,12 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/home', [
 
+    'uses'=>'HomeController@index',
+    'as' => 'home'
+
+]);
 Route::get('/', [
 
     'uses'=>'HomeController@index',
@@ -23,7 +28,7 @@ Route::get('login', [
     'uses'=>'Auth\AuthController@getLogin',
     'as' => 'login'
 ]);
-Route::post('login', 'Auth\AuthController@postLogin');
+Route::post('login', 'Auth\AuthController@authenticate');
 
 Route::get('logout', [
     'uses'=>'Auth\AuthController@getLogout',
@@ -162,5 +167,18 @@ Route::get('/cancelarReserva',[
 Route::post('/cancelarReserva',[
         'uses'=>'cancelarReservaController@update',
         'as'  => 'cancelarReserva'
+    ]
+);
+
+
+Route::get('/agregarAdministradores',[
+    'uses'=>'agregarAdministradoresController@index',
+    'as'  => 'agregarAdministradores'
+]
+);
+
+Route::post('/agregarAdministradores',[
+        'uses'=>'agregarAdministradoresController@store',
+        'as'  => 'agregarAdministradores'
     ]
 );
