@@ -15,7 +15,8 @@ class EquipoHorario extends Migration
         Schema::create('equipo_horario', function (Blueprint $table) {
             $table->increments('id');
             $table->string('equipoId');
-            $table->string('horarioId');
+            $table->string('horario');
+            $table->string('estado');
         });
     }
 

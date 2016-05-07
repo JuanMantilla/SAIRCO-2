@@ -120,6 +120,12 @@ Route::get('/obtenerInformacion',[
     ]
 );
 
+Route::get('/obtenerInformacionSalones',[
+        'uses'=>'viewObtenerInformacion@salones',
+        'as'  => 'obtenerInformacionSalones'
+    ]
+);
+
 Route::get('/actualizarRecurso',[
         'uses'=>'actualizarRecursoController@index',
         'as'  => 'actualizarRecurso'
@@ -180,5 +186,11 @@ Route::get('/agregarAdministradores',[
 Route::post('/agregarAdministradores',[
         'uses'=>'agregarAdministradoresController@store',
         'as'  => 'agregarAdministradores'
+    ]
+);
+
+Route::get('/archivoNicolas',[
+        'uses'=>'userController@index',
+        'as'  => 'archivoNicolas'
     ]
 );

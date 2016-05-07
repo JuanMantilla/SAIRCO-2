@@ -14,6 +14,7 @@
                     echo "<strong> ID </strong>del equipo: ".$equipo->id."<br/>";
                     echo "<strong>Nombre </strong>del equipo: ".$equipo->name."<br/>";
                     echo "<strong>Ubicación </strong>del equipo: ".$equipo->ubicacion."<br/>";
+                    echo "<strong>Número de reservas </strong>del equipo: ".$equipo->nroReservas."<br/>";
                     echo "<hr>";
             }
         }else echo "No hay equipos en la base de datos"

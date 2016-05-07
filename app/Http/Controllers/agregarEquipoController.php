@@ -29,12 +29,13 @@ class agregarEquipoController extends Controller
                     $fecha = date_create('2016-01-01');
                     $horario = $fecha->format('Y-m-d H:i');
                     $hora = (int)substr($horario, -5, 2);
+                    DB::insert('insert into equipos (name, hardwareId, ubicacion) values (?,?,?)', [$nombreEquipo, $resultados->ID, $nombreSalon]);
                     for ($i = 0; $i < 168; $i++) {
                         date_add($fecha, date_interval_create_from_date_string('1 hour'));
                         $hora = (int)substr($horario, -5, 2);
                         $horario = $fecha->format('Y-m-d H:i');
                         if ($hora > 6 && $hora < 21) {
-                            DB::insert('insert into equipos (name, hardwareId, ubicacion, horario, estado) values (?, ?, ?,?,?)', [$nombreEquipo, $resultados->ID, $nombreSalon, $horario, 0]);
+                            DB::insert('insert into equipo_horario (equipoId, horario, estado) values (?,?,?)', [$resultados->ID, $horario, 0]);
                             DB::table('controladorEquipos')
                                 ->update(['Agregar' => 1]);
                         }

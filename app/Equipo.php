@@ -13,6 +13,7 @@ class Equipo extends Model
      */
     protected $table = 'equipo';
     protected $fillable = ['name', 'ubicacion', 'horario', 'hardware', 'software', 'nroReservas'];
+
     public function horario()
     {
         return $this->belongsToMany('App\Horario');

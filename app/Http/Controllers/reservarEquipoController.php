@@ -45,11 +45,11 @@ class reservarEquipoController extends Controller
         //Ademas, asegura que se asigne la reserva a s�lo un equipo.
         $centinela=false;
         //guarda todos los equipos que tengan el horario ingresado por el usuario en la variable $equipos disponibles
-        $equiposDisponibles = DB::select('select * from equipos where horario= ?', [$request->fecha]);
+        $equiposDisponibles = DB::select('select * from equipo_horario where horario= ?', [$request->fecha]);
         //recorro todos los equipos dentro de la variable $equipos disponibles
         foreach ($equiposDisponibles as $resultado) {
             //Le asigno a la variable $software el hardware id del euqipo que tiene en ese momento
-            $software=$resultado->hardwareId;
+            $software=$resultado->equipoId;
             //Asigno a la variable $softwares todos los equipos dentro de la tabla generada por OCS
             //que tengan el mismo hardware id de $equposdisponibles para poder manipularla posteriormente
             $softwares = DB::select('select * from softwares where HARDWARE_ID= ?', [$software]);
@@ -67,19 +67,22 @@ class reservarEquipoController extends Controller
                         if($centinela==false){
                             //Cambio el valor de $centinela
                             $centinela=true;
-                            //Inserto la reserva en la tabla de reservas
-                            DB::insert('insert into reservas (usuario, fecha, ubicacion, equipo, estado) values (?, ?, ?, ?, ?)', [$request->usuario, $request->fecha, $resultados->ubicacion,$resultados->name, 1 ]);
-                               //Actualizo el
-                                $numeroDeReservas=$resultados->nroReservas;
-                                $numeroDeReservasActualizado=$numeroDeReservas+1;
+                            //relaciono la tabla de horarios con la de equipos:
+                            $equipos = DB::select('select * from equipos where hardwareId= ?', [$variable->HARDWARE_ID]);
+                            foreach ($equipos as $equipoAreservar) {
+                                //Inserto la reserva en la tabla de reservas
+                                DB::insert('insert into reservas (usuario, fecha, ubicacion, equipo, estado) values (?, ?, ?, ?, ?)', [$request->usuario, $request->fecha, $equipoAreservar->ubicacion, $equipoAreservar->name, 1]);
+                                //Actualizo el
+                                $numeroDeReservas = $equipoAreservar->nroReservas;
+                                $numeroDeReservasActualizado = $numeroDeReservas + 1;
+                                DB::table('equipo_horario')
+                                    ->where('equipoId', $resultados->equipoId)
+                                    ->where('horario', $request->fecha)
+                                    ->update(['estado' => 1]);
                                 DB::table('equipos')
-                                ->where('hardwareId', $resultados->hardwareId)
-                                ->where('horario', $request->fecha)
-                                ->update(['estado' => 1]);
-                                DB::table('equipos')
-                                ->where('hardwareId', $resultados->hardwareId)
-                                ->where('horario', $request->fecha)
-                                ->update(['nroReservas' =>$numeroDeReservasActualizado]);
+                                    ->where('hardwareId', $resultados->equipoId)
+                                    ->update(['nroReservas' => $numeroDeReservasActualizado]);
+                            }
                         }
                     }
                 }

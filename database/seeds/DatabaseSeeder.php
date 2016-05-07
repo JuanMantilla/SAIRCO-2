@@ -52,5 +52,11 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('admin')
 
         ]);
+
+//        factory(App\ControladorEquipos::class)->create([
+//            'Agregar' => '0',
+//            'horario'=> '0',
+//            'equipoHorario'=> '0',
+//        ]);
     }
 }

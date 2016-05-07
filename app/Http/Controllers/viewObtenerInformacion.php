@@ -14,12 +14,11 @@ class viewObtenerInformacion extends Controller
         $equipos = DB::select('select * from equipos');
         $salones = DB::select('select * from salones');
         $iterador = 0;
+
         if ($equipos && $salones) {
             foreach ($equipos as $equipo) {
-                if ($equipo->id == 1 || $equipo->id == 15) {
                     $unicosEquipos[$iterador] = $equipo;
                     $iterador++;
-                }
             }
             foreach ($salones as $salon) {
                 if ($salon->id == 1) {
@@ -27,7 +26,11 @@ class viewObtenerInformacion extends Controller
                     $iterador++;
                 }
             }
-            return view('panelDeAdministrador\viewObtenerInformacion', ['equipos' => $unicosEquipos], ['salones' => $unicosSalones]);
+            if( preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])){
+                return response()->json($unicosEquipos);
+            }
+            return view('panelDeAdministrador\viewObtenerInformacion', ['equipos' => $equipos], ['salones' => $unicosSalones]);
+
         } else if ($salones) {
             {
                 $unicosEquipos = 0;
@@ -58,5 +61,20 @@ class viewObtenerInformacion extends Controller
             $unicosEquipos = 0;
             return view('panelDeAdministrador\viewObtenerInformacion', ['equipos' => $unicosEquipos], ['salones' => $unicosSalones]);
         }
+    }
+    public function salones(){
+        $salones = DB::select('select * from salones');
+        $iterador=0;
+        foreach ($salones as $salon) {
+            if ($salon->id == 1) {
+                $unicosSalones[$iterador] = $salon;
+                $iterador++;
+            }
+        }
+
+        if( preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])){
+            return response()->json($unicosSalones);
+        }
+
     }
 }

@@ -14,5 +14,10 @@ class Horario extends Model
      * @var array
      */
     protected $fillable = ['anio', 'mes', 'dia', 'hora', 'minuto'];
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Equipo');
+    }
 }
 
