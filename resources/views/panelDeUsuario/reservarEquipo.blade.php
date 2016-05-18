@@ -24,6 +24,12 @@
         <br>
         <input type="checkbox" name="software1" value="Google Chrome"> Navegador de internet
         <br>
+        <br>
+        <input type="checkbox" name="software2" value="Notepad++"> Notepad++
+        <br>
+        <br>
+        <input type="checkbox" name="software3" value="Microsoft Office Professional Plus 2013"> Office
+        <br>
         <input type="hidden" name="usuario" value="{{ Auth::user()->name }}">
         <br>
         <input type="submit" name="">

@@ -2,9 +2,6 @@
 @section ('title')
     Agregar administrador
 @endsection
-@section ('menu')
-    <li><a href="{{route('acercaDe')}}">Personas involucradas</a></li>
-@endsection
 @section('contenidoAdministrador')
     <div class="container-fluid">
         <div class="row">

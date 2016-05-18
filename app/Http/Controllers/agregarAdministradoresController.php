@@ -1,10 +1,15 @@
 <?php
+
 namespace App\Http\Controllers;
-use DB;
+
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-class eliminarEquipoController extends Controller
+
+use App\User;
+
+class agregarAdministradoresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,12 +18,9 @@ class eliminarEquipoController extends Controller
      */
     public function index()
     {
-        DB::table('equipos')->truncate();
-        DB::table('equipo_horario')->truncate();
-        DB::table('controladorEquipos')
-            ->update(['Agregar' => 0]);
-        return view('panelDeAdministrador\eliminarEquipo');
+        return view('panelDeAdministrador\agregarAdministradores');
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,6 +30,7 @@ class eliminarEquipoController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -36,8 +39,17 @@ class eliminarEquipoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+            $user = new User([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+            ]);
+            $user->role = 'admin';
+            $user->save();
+        return view('panelDeAdministrador\administradorRegistrado');
     }
+
     /**
      * Display the specified resource.
      *
@@ -48,6 +60,7 @@ class eliminarEquipoController extends Controller
     {
         //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,6 +71,7 @@ class eliminarEquipoController extends Controller
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -69,6 +83,7 @@ class eliminarEquipoController extends Controller
     {
         //
     }
+
     /**
      * Remove the specified resource from storage.
      *

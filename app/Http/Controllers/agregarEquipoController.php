@@ -18,15 +18,25 @@ class agregarEquipoController extends Controller
         foreach ($controlador as $elvalor) {
             $valor = (int)$elvalor->Agregar;
         }
+
         if ($valor == 0) {
             foreach ($hardware as $resultados) {
+                $fecha = date_create('2016-01-01');
                 $nombreSalon = "A1";
+                if (substr($resultados->NAME, -10, 4)== "SALA")
+                {
                 $nombreSalon = $nombreSalon . " " . substr($resultados->NAME, -10, 7);
                 $nombreEquipo = substr($resultados->NAME, -2, 2);
+                }
+                else if (substr($resultados->NAME, -10, 4)=="ALA4")
+                {
 
-                if ($resultados->NAME = substr($resultados->NAME, -10, 4) == "SALA" && $centinela == false) {
-                    $$centinela = true;
-                    $fecha = date_create('2016-01-01');
+                    $nombreSalon = $nombreSalon . " " . substr($resultados->NAME, -11, 7);
+                    $nombreEquipo = substr($resultados->NAME, -3, 3);
+                }
+                if (substr($resultados->NAME, -10, 4) == "SALA" || substr($resultados->NAME, -10, 4)=="ALA4" && $centinela == false) {
+                    //$centinela = true;
+                    echo "hola ".substr($resultados->NAME, -10, 4)." <br/>";
                     $horario = $fecha->format('Y-m-d H:i');
                     $hora = (int)substr($horario, -5, 2);
                     DB::insert('insert into equipos (name, hardwareId, ubicacion) values (?,?,?)', [$nombreEquipo, $resultados->ID, $nombreSalon]);
