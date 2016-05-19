@@ -137,28 +137,50 @@ class reservarEquipoController extends Controller
                                 DB::table('equipos')
                                     ->where('hardwareId', $resultados->equipoId)
                                     ->update(['nroReservas' => $numeroDeReservasActualizado]);
+
+                                $contadorSoftware = DB::select('select * from contadorSoftware ');
+                                $contador=0;
+                                if ($contadorSoftware){
+                                    foreach ($contadorSoftware as $softwareActual){
+                                        $contador=0;
+                                        for ($h=1;$h<=sizeof($softwareSeleccionado);$h++){
+                                            echo $request->$softwareSeleccionado[$contador]."<br/>";
+                                            if ($softwareActual->name == $request->$softwareSeleccionado[$contador])
+                                            {
+                                                echo $request->$softwareSeleccionado[$contador]."Hola oirga<br/>";
+                                                $numeroDeReservasSoftware = $softwareActual->nroReservas;
+                                                $numeroDeReservasSoftwareActualizado = $numeroDeReservasSoftware + 1;
+                                                DB::table('contadorSoftware')
+                                                    ->where('name',$request->$softwareSeleccionado[$contador])
+                                                    ->update(['nroReservas' => $numeroDeReservasSoftwareActualizado]);
+
+                                            }
+                                            $contador++;
+                                        }
+                                    }
+                                }  else {
+                                    for ($h=1;$h<=sizeof($softwareSeleccionado);$h++){
+                                        DB::insert('insert into contadorSoftware (name, nroReservas) values (?, ?)', [$request->$softwareSeleccionado[$contador], 1]);
+                                        $contador++;
+                                    }
+
+                                }
                             }
+                            break;
                         }
+
                     }
                 }
             }
 
         }
-            //guarda todos los equipos que tengan el horario ingresado por el usuario en la variable $equipos disponibles
-
-
-                //Recorro todos los $equipos disponibles
-    //            foreach ($equiposDisponibles as $resultados) {
-    //                //estado=1:reservado , estado=0: disponible
-    //
-    //            }
-                if ($centinela) {
-                    return view('panelDeUsuario\reservaSatisfactoria');
-                } else {
-                    return view('panelDeUsuario\reservaInsatisfactoria');
-                }
-
+        if ($centinela) {
+            return view('panelDeUsuario\reservaSatisfactoria');
+        } else {
+            return view('panelDeUsuario\reservaInsatisfactoria');
         }
+
+    }
 
 
     /**
