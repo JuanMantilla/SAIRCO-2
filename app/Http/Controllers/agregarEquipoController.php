@@ -38,7 +38,6 @@ class agregarEquipoController extends Controller
                     //$centinela = true;
                     echo "hola ".substr($resultados->NAME, -10, 4)." <br/>";
                     $horario = $fecha->format('Y-m-d H:i');
-                    $hora = (int)substr($horario, -5, 2);
                     DB::insert('insert into equipos (name, hardwareId, ubicacion) values (?,?,?)', [$nombreEquipo, $resultados->ID, $nombreSalon]);
                     for ($i = 0; $i < 168; $i++) {
                         date_add($fecha, date_interval_create_from_date_string('1 hour'));

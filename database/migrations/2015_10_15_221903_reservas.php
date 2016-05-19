@@ -15,7 +15,8 @@ class Reservas extends Migration
         Schema::create('reservas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('usuario');
-            $table->string('fecha');
+            $table->string('fechaInicial');
+            $table->string('fechaFinal');
             $table->string('ubicacion');
             $table->string('equipo');
             $table->integer('estado');

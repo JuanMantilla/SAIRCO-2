@@ -8,7 +8,8 @@
     <?php
     if ($reservas != 0){
         foreach ($reservas as $reserva) {
-            echo "<strong> Fecha: </strong>".$reserva->fecha."<br/>";
+            echo "<strong> Fecha inicial: </strong>".$reserva->fechaInicial."<br/>";
+            echo "<strong> Fecha final: </strong>".$reserva->fechaFinal."<br/>";
 
             if ($reserva->estado==0)
             { echo "<strong> Estado: </strong> cancelada<br/>";
