@@ -66,13 +66,16 @@ class reservarEquipoController extends Controller
 
             $equipo_horario = DB::table('equipo_horario')
                 ->where('equipoId', '=', $equipo->hardwareId)
+                ->where ('horario', '=' ,$request->fecha)
                 ->get();
+            $seReservara=0;
             /*recorro todos el horario del equipo evaluado actualmente; si en el intervalo que el usuario requiere el equipo, este esta ocupado se hace la variable
             $seReservara igual a 1 para que ese equipo no se reserve y se sale de este ciclo*/
             foreach ($equipo_horario as $resultados)
             {
-                $seReservara=0;
-                if ($resultados->horario==$fechaFinal) {break;}
+
+                if ($resultados->horario==$fechaFinal) {
+                    break;}
                 else if($resultados->estado!=0)
                 {
                     $seReservara=1;
@@ -120,7 +123,6 @@ class reservarEquipoController extends Controller
                                 //Inserto la reserva en la tabla de reservas
                                 DB::insert('insert into reservas (usuario, fechaInicial, fechaFinal, ubicacion, equipo, estado) values (?, ?,?, ?, ?, ?)', [$request->usuario, $fechaInicial, $fechaFinal, $equipoAreservar->ubicacion, $equipoAreservar->name, 1]);
                                 //Actualizo el
-                                echo $nroHorasAreservar."<br/>";
                                 $numeroDeReservas = $equipoAreservar->nroReservas;
                                 $numeroDeReservasActualizado = $numeroDeReservas + 1;
                                 $fechaAactualizar = date_create($fechaInicial);
@@ -144,10 +146,8 @@ class reservarEquipoController extends Controller
                                     foreach ($contadorSoftware as $softwareActual){
                                         $contador=0;
                                         for ($h=1;$h<=sizeof($softwareSeleccionado);$h++){
-                                            echo $request->$softwareSeleccionado[$contador]."<br/>";
                                             if ($softwareActual->name == $request->$softwareSeleccionado[$contador])
                                             {
-                                                echo $request->$softwareSeleccionado[$contador]."Hola oirga<br/>";
                                                 $numeroDeReservasSoftware = $softwareActual->nroReservas;
                                                 $numeroDeReservasSoftwareActualizado = $numeroDeReservasSoftware + 1;
                                                 DB::table('contadorSoftware')
@@ -157,6 +157,7 @@ class reservarEquipoController extends Controller
                                             }
                                             $contador++;
                                         }
+
                                     }
                                 }  else {
                                     for ($h=1;$h<=sizeof($softwareSeleccionado);$h++){

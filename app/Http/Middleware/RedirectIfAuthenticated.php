@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Auth;
 
 class RedirectIfAuthenticated
 {
@@ -35,9 +37,11 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) {
-            return redirect('/home');
+            if ($request->role=='user'){
+                return new RedirectResponse(url('/panelDeAdministrador'));
+            }else return redirect('/panelDeUsuario');
         }
-
+        //else return redirect ('/home');
         return $next($request);
     }
 }
