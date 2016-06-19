@@ -19,20 +19,25 @@ class verReservasController extends Controller
      */
     public function index()
     {
-        $user= Auth::user()->name;
-        $reservas = DB::select('select * from reservas where usuario = :nombre', ['nombre' =>$user] );
-        if ($reservas) {
-            if( preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])){
-                return response()->json($reservas);
+        if(Auth::check() && Auth::user()->role=='user') {
+
+
+            $user = Auth::user()->name;
+            $reservas = DB::select('select * from reservas where usuario = :nombre', ['nombre' => $user]);
+            if ($reservas) {
+                if (preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])) {
+                    return response()->json($reservas);
+                }
+                return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
+
+            } else {
+                $reservas = 0;
+
+                return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
             }
-                return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
-
-        }
-        else {
-            $reservas=0;
-
-                return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
-        }
+        }else{
+                return redirect()->route('login');
+            }
     }
 
     /**

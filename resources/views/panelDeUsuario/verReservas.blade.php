@@ -54,6 +54,7 @@
                     }
                 ?>
             </table>
+
             <hr>
         </div>
     </div>
@@ -72,7 +73,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{route('cancelarReserva')}}">
                         <div class="form-group">
                             <input type="hidden" name="usuario" value="{{ Auth::user()->name }}">
-                            <input type="text"  name="id" class="form-control" id="identificadorReserva" value="Si ves esto, hay un error"  readonly>
+                            <input type="hidden"  name="id" class="form-control" id="identificadorReserva" value="Si ves esto, hay un error"  readonly>
                             <script>
                                 function actualizarReserva(fecha) {
                                     document.getElementById("identificadorReserva").value= fecha;
@@ -90,10 +91,21 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">
+                            <button onclick="myFunction()" type="submit" class="btn btn-primary">
                                 Enviar
                             </button>
                         </div>
+                        <script>
+                            function myFunction() {
+                                var txt;
+                                var r = confirm("Press a button!");
+                                if (r == true) {
+                                    txt = "You pressed OK!";
+                                } else {
+                                echo: "<a href="{{route('agregarAdministradores')}}">Agregar administradores</a>"
+                                }
+                            }
+                        </script>
                     </form>
                 </div>
 

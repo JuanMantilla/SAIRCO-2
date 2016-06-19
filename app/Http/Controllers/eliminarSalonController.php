@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,10 +17,16 @@ class eliminarSalonController extends Controller
      */
     public function index()
     {
-        DB::table('salones')->truncate();
-        DB::table('controladorEquipos')
-            ->update(['horario' => 0]);
-        return view('panelDeAdministrador\eliminarSalon');
+        if(Auth::check() && Auth::user()->role=='admin') {
+
+
+            DB::table('salones')->truncate();
+            DB::table('controladorEquipos')
+                ->update(['horario' => 0]);
+            return view('panelDeAdministrador\eliminarSalon');
+        }else{
+                return redirect()->route('login');
+            }
     }
 
     /**

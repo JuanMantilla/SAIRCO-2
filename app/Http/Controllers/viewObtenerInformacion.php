@@ -5,48 +5,50 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Auth;
 use App\Http\Controllers\Controller;
 
 class viewObtenerInformacion extends Controller
 {
     public function index()
     {
-        $equipos = DB::select('select * from equipos');
-        $salones = DB::select('select * from salones');
-        $softwares = DB::table('contadorSoftware')
-            ->orderBy('nroReservas', 'desc')
-            ->get();
-        $iterador = 0;
+        if(Auth::check() && Auth::user()->role=='admin') {
+            $equipos = DB::select('select * from equipos');
+            $salones = DB::select('select * from salones');
+            $softwares = DB::table('contadorSoftware')
+                ->orderBy('nroReservas', 'desc')
+                ->get();
+            $iterador = 0;
 
-        if ($equipos && $salones && $softwares) {
-            foreach ($equipos as $equipo) {
+            if ($equipos && $salones && $softwares) {
+                foreach ($equipos as $equipo) {
                     $unicosEquipos[$iterador] = $equipo;
                     $iterador++;
-            }
-            foreach ($salones as $salon) {
-                if ($salon->id == 1) {
-                    $unicosSalones[$iterador] = $salon;
-                    $iterador++;
                 }
-            }
-            if( preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])){
-                return response()->json($unicosEquipos);
-            }
-            return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos'=>$unicosEquipos,'salones'=>$unicosSalones, 'softwares'=>$softwares]);
-
-        } else if ($salones && $softwares) {
-            {
-                $unicosEquipos = 0;
-                $iterador = 0;
                 foreach ($salones as $salon) {
                     if ($salon->id == 1) {
                         $unicosSalones[$iterador] = $salon;
                         $iterador++;
                     }
                 }
-                return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos'=>$unicosEquipos,'salones'=>$unicosSalones, 'softwares'=>$softwares]);
-            }
-        } else if ($equipos && $softwares){
+                if (preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])) {
+                    return response()->json($unicosEquipos);
+                }
+                return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos' => $unicosEquipos, 'salones' => $unicosSalones, 'softwares' => $softwares]);
+
+            } else if ($salones && $softwares) {
+                {
+                    $unicosEquipos = 0;
+                    $iterador = 0;
+                    foreach ($salones as $salon) {
+                        if ($salon->id == 1) {
+                            $unicosSalones[$iterador] = $salon;
+                            $iterador++;
+                        }
+                    }
+                    return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos' => $unicosEquipos, 'salones' => $unicosSalones, 'softwares' => $softwares]);
+                }
+            } else if ($equipos && $softwares) {
 
                 $unicosSalones = 0;
                 $equipos = DB::select('select * from equipos');
@@ -57,16 +59,18 @@ class viewObtenerInformacion extends Controller
                         $iterador++;
                     }
                 }
-                return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos'=>$unicosEquipos,'salones'=>$unicosSalones, 'softwares'=>$softwares]);
+                return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos' => $unicosEquipos, 'salones' => $unicosSalones, 'softwares' => $softwares]);
+            } else {
+                $unicosSalones = 0;
+                $unicosEquipos = 0;
+                return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos' => $unicosEquipos, 'salones' => $unicosSalones, 'softwares' => $softwares]);
+            }
         }
-        else  {
-            $unicosSalones = 0;
-            $unicosEquipos = 0;
-            return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos'=>$unicosEquipos,'salones'=>$unicosSalones, 'softwares'=>$softwares]);
-        }
+        else{return redirect()->route('login');}
     }
 
     public function postEquipo(Request $request){
+        echo "uajsomd";
         if ($request->name){
             DB::table('equipos')
                 ->where('id', $request->id)

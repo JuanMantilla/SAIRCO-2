@@ -122,7 +122,6 @@ Route::get('/agregarEquipo',[
     ]
 );
 
-
 Route::get('/obtenerInformacion',[
         'uses'=>'viewObtenerInformacion@index',
         'as'  => 'obtenerInformacion'
@@ -133,11 +132,12 @@ Route::post('/obtenerInformacion',[
         'as'  => 'obtenerInformacion'
     ]
 );
-Route::post('/obtenerInformacion',[
+Route::post('/obtenerInformacionSalon',[
         'uses'=>'viewObtenerInformacion@postSalon',
         'as'  => 'obtenerInformacionSalon'
     ]
 );
+
 
 Route::get('/obtenerInformacionSalones',[
         'uses'=>'viewObtenerInformacion@salones',

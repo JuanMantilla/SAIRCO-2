@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Auth;
 use App\User;
 
 class agregarAdministradoresController extends Controller
@@ -39,6 +39,7 @@ class agregarAdministradoresController extends Controller
      */
     public function store(Request $request)
     {
+        if(Auth::check() && Auth::user()->role=='admin') {
 
             $user = new User([
                 'name' => $request->name,
@@ -47,7 +48,10 @@ class agregarAdministradoresController extends Controller
             ]);
             $user->role = 'admin';
             $user->save();
-        return view('panelDeAdministrador\administradorRegistrado');
+            return view('panelDeAdministrador\administradorRegistrado');
+        } else{
+            return redirect()->route('login');
+        }
     }
 
     /**

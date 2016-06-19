@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -13,11 +14,18 @@ class eliminarEquipoController extends Controller
      */
     public function index()
     {
+        if(Auth::check() && Auth::user()->role=='admin') {
+
+
         DB::table('equipos')->truncate();
         DB::table('equipo_horario')->truncate();
         DB::table('controladorEquipos')
             ->update(['Agregar' => 0]);
         return view('panelDeAdministrador\eliminarEquipo');
+        }
+        else{
+                return redirect()->route('login');
+            }
     }
     /**
      * Show the form for creating a new resource.
