@@ -3,9 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Auth;
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -25,28 +22,12 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function authenticate(Request $request)
-    {
-        $movil = $request->Movil;
-//        if ($request->has('email') || $request->has('password')) {
-//            return abort(405);
-//        }
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Authentication passed...
-            if ($request->has('Movil')) {
-                return 200;
-            } else
-                return redirect()->intended($this->redirectPath(Auth::user()->role));
-        } else {
-            return abort(401);
-        }
-    }
-
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
@@ -55,7 +36,7 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array $data
+     * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -70,21 +51,20 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array $data
+     * @param  array  $data
      * @return User
      */
     protected function create(array $data)
     {
-        $user = new User([
+        $user=new User([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        $user->role = 'user';
+        $user->role='user';
         $user->save();
         return $user;
     }
-
     /**
      * Get the path to the login route.
      *
@@ -102,11 +82,9 @@ class AuthController extends Controller
      */
     public function redirectPath($role)
     {
-        if ($role == 'admin') {
-            return route('panelDeAdministrador');
-        } else if ($role == 'user') {
-            return route('panelDeUsuario');
-        } else return route('home');
+        if($role=='admin'){return route('panelDeAdministrador');}
+        else if($role=='user'){return route('panelDeUsuario');}
+        else return route('home');
     }
 
 }

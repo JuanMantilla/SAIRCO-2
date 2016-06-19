@@ -13,5 +13,15 @@ class userController extends Controller
     {
         return view('nicolas');
     }
+    public function sendEmailReminder(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
+            $m->from('sairco@app.com', 'SAIRCO');
+
+            $m->to($user->email, $user->name)->subject('Your Reminder!');
+        });
+    }
 
 }

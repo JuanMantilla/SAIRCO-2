@@ -36,7 +36,6 @@ class agregarEquipoController extends Controller
                 }
                 if (substr($resultados->NAME, -10, 4) == "SALA" || substr($resultados->NAME, -10, 4)=="ALA4" && $centinela == false) {
                     //$centinela = true;
-                    echo "hola ".substr($resultados->NAME, -10, 4)." <br/>";
                     $horario = $fecha->format('Y-m-d H:i');
                     DB::insert('insert into equipos (name, hardwareId, ubicacion) values (?,?,?)', [$nombreEquipo, $resultados->ID, $nombreSalon]);
                     for ($i = 0; $i < 168; $i++) {

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 class verReservasController extends Controller
 {
@@ -17,14 +19,19 @@ class verReservasController extends Controller
      */
     public function index()
     {
-        $reservas = DB::select('select * from reservas where usuario = :nombre', ['nombre' =>Auth::user()->name] );
+        $user= Auth::user()->name;
+        $reservas = DB::select('select * from reservas where usuario = :nombre', ['nombre' =>$user] );
         if ($reservas) {
+            if( preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])){
+                return response()->json($reservas);
+            }
+                return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
 
-            return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
         }
         else {
             $reservas=0;
-            return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
+
+                return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
         }
     }
 
@@ -82,7 +89,10 @@ class verReservasController extends Controller
     {
         //
     }
-
+    public function getReservas(Resquest $request){
+        $reservas = DB::select('select * from reservas where usuario = :nombre', ['nombre' =>$request->usuario] );
+        return $reservas;
+    }
     /**
      * Remove the specified resource from storage.
      *

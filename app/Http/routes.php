@@ -24,12 +24,21 @@ Route::get('/', [
 ]);
 
 // Authentication routes...
+//Route::get('login', [
+//    'uses'=>'Auth\AuthController@getLogin',
+//    'as' => 'login'
+//]);
+//Route::post('login', 'Auth\AuthController@authenticate');
+//
+//Route::get('logout', [
+//    'uses'=>'Auth\AuthController@getLogout',
+//    'as'  =>'logout'
+//]);
 Route::get('login', [
     'uses'=>'Auth\AuthController@getLogin',
     'as' => 'login'
 ]);
-Route::post('login', 'Auth\AuthController@authenticate');
-
+Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', [
     'uses'=>'Auth\AuthController@getLogout',
     'as'  =>'logout'
@@ -119,6 +128,16 @@ Route::get('/obtenerInformacion',[
         'as'  => 'obtenerInformacion'
     ]
 );
+Route::post('/obtenerInformacion',[
+        'uses'=>'viewObtenerInformacion@postEquipo',
+        'as'  => 'obtenerInformacion'
+    ]
+);
+Route::post('/obtenerInformacion',[
+        'uses'=>'viewObtenerInformacion@postSalon',
+        'as'  => 'obtenerInformacionSalon'
+    ]
+);
 
 Route::get('/obtenerInformacionSalones',[
         'uses'=>'viewObtenerInformacion@salones',
@@ -152,6 +171,11 @@ Route::get('/verReservas',[
         'as'  => 'verReservas'
     ]
 );
+//Route::post('/verReservas',[
+//        'uses'=>'Auth\verReservasController@getReservas',
+//        'as'  => 'verReservas'
+//    ]
+//);
 
 Route::get('/reservarEquipo',[
         'uses'=>'reservarEquipoController@index',
@@ -186,6 +210,12 @@ Route::get('/agregarAdministradores',[
 Route::post('/agregarAdministradores',[
         'uses'=>'agregarAdministradoresController@store',
         'as'  => 'agregarAdministradores'
+    ]
+);
+
+Route::get('/archivoNicolas',[
+        'uses'=>'userController@index',
+        'as'  => 'archivoNicolas'
     ]
 );
 

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => abort(401,'Estas credenciales no están en nuestra base de datos.' ),
+    'failed' => 'Email y/o contraseña inválido(s).',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

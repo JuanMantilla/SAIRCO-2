@@ -10,7 +10,7 @@
         <h2>Selecciona la fecha de la reserva que quieres cancelar</h2>
         <div class="input-append date form_datetime">
             <input size="16" type="text" name="fecha"value="" readonly>
-            <span class="add-on"><i class="icon-th"></i></span>
+            <span class="add-on"><i class="icon-th"><span class="glyphicon glyphicon-calendar"></span></i></span>
         </div>
 
         <script type="text/javascript">

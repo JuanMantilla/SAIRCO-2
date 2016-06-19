@@ -22,12 +22,8 @@
         <a href="{{route('viewEliminarSalon')}}">Eliminar salones de cómputo</a>
     </li>
     <li>
-        <a href="{{route('actualizarRecurso')}}">Actualizar recursos</a>
+        <a href="{{route('obtenerInformacion')}}">Gestionar información</a>
     </li>
-    <li>
-        <a href="{{route('obtenerInformacion')}}">Obtener información</a>
-    </li>
-
     <li>
         <a href="{{route('agregarAdministradores')}}">Agregar administradores</a>
     </li>
