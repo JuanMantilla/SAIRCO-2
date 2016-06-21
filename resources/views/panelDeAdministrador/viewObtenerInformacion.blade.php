@@ -156,7 +156,7 @@
                 <div class="modal-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{route('obtenerInformacion')}}">
                         <div class="form-group">
-                            <input type="text"  name="id" class="form-control" id="id" value="Si ves esto, hay un error"  readonly>
+                            <input type="hidden"  name="id" class="form-control" id="id" value="Si ves esto, hay un error"  readonly>
                             <script>
                                 function funcion(id) {
                                     document.getElementById("id").value= id;

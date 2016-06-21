@@ -1,48 +1,43 @@
-@extends('panelDeUsuario/panelDelUsuarioLayout')
+@extends('panelDeOrganizador/panelDeOrganizadorLayout')
 @section ('title')
-    Mis reservas
+    Panel del organizador
 @endsection
 
-@section('contenidoUsuario')
-    <h1>Mis reservas: </h1>
-    <hr>
+@section('contenidoOrganizador')
+    <h1>Asignar reserva</h1>
     <?php
-    if ($reservas !=0){
+    if ($equipoHorarios){
     ?>
     <div class="table-responsive">
         <div class="container ">
             <table class="table table-striped table-bordered table-hover table-condensed ">
                 <tr class="info">
 
-                    <td align="center"><strong>Fecha inicial</strong></td>
-                    <td align="center"><strong>Fecha final</strong></td>
-
+                    <td align="center"><strong>Fecha</strong></td>
                     <td align="center"><strong>Ubicación</strong></td>
-                    <td align="center"><strong>Equipo</strong></td>
-
+                    <td align="center"><strong>Nombre</strong></td>
                     <td align="center"><strong>Estado</strong></td>
 
 
                 </tr>
 
                 <?php
-                foreach ($reservas as $reserva){
+                foreach ($equipoHorarios as $equipoHorario){
                 echo "<tr>";
-                ?><td align="center"><?php echo $reserva->fechaInicial."</td>";
-                ?><td align="center"><?php echo $reserva->fechaFinal."</td>";
-                ?><td align="center"><?php echo $reserva->ubicacion."</td>";
-                ?><td align="center"><?php echo $reserva->equipo."</td>";
+                ?><td align="center"><?php echo $equipoHorario->horario."</td>";
+                ?><td align="center"><?php echo $equipoHorario->ubicacion."</td>";
+                ?><td align="center"><?php echo $equipoHorario->name."</td>";
                 ?><td align="center"><?php
-                if ($reserva->estado==0)
-                { ?>
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#actualizarReservaModal" onClick="javascript:actualizarReserva({{ $reserva->id }});">Cancelada
-                <?php }else  {?><button class="btn btn-success" data-toggle="modal" data-target="#actualizarReservaModal" onClick="javascript:actualizarReserva({{ $reserva->id }});">Confirmada
+                    if ($equipoHorario->estado==0)
+                    { ?>
+                    <button class="btn btn-success" data-toggle="modal" data-target="#actualizarReservaModal" onClick="javascript:actualizarReserva({{$equipoHorario->id}});">Disponible
+                        <?php }else  {?><button class="btn btn-danger" data-toggle="modal" data-target="#actualizarReservaModal" onClick="javascript:actualizarReserva({{ $equipoHorario->horario }});">Ocupado
 
                 </td></button>
                 <?php
                 echo "</tr>";
                 }
-                    }
+                }
                 ?>
             </table>
 
@@ -61,26 +56,21 @@
                     <h4 class="modal-title" id="exampleModalLabel">Modificar reserva</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{route('cancelarReserva')}}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{route('asignarReserva')}}">
                         <div class="form-group">
-                            <input type="hidden" name="usuario" value="{{ Auth::user()->name }}">
+                            <input type="hidden" name="organizador" value="{{ Auth::user()->name }}">
                             <input type="hidden"  name="id" class="form-control" id="identificadorReserva" value="Si ves esto, hay un error"  readonly>
                             <script>
-                                function actualizarReserva(fecha) {
-                                    document.getElementById("identificadorReserva").value= fecha;
+                                function actualizarReserva(id) {
+                                    document.getElementById("identificadorReserva").value= id;
                                 }
                             </script>
                             <div class="container">
-                                <label for="recipient-name" class="control-label">Nuevo estado de la reserva:</label>
-                                <br>
+                                <label for="recipient-name" class="control-label">Código del estudiante:</label>
                                 <div class="row">
-
-                                        <div class="col-md-3 ">
-                                            <select class="form-control" name="estado">
-                                            <option value="cancelar">Cancelar</option>
-                                            <option value="confirmar">Confirmar</option>
-                                            </select>
-                                        </div>
+                                    <div class="col-md-6">
+                                        <input type="text"  name="usuario" class="form-control" id="identificadorReserva" placeholder="Ingrese el código del estudiante" required>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -97,6 +87,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

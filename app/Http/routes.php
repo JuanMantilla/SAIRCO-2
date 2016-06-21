@@ -224,3 +224,29 @@ Route::get('/archivoNicolas',[
         'as'  => 'archivoNicolas'
     ]
 );
+
+Route::get('/panelDeOrganizador',[
+        'uses'=>'panelDeOrganizador@index',
+        'as'  => 'panelDeOrganizador'
+    ]
+);
+Route::get('/asignarReserva',[
+        'uses'=>'panelDeOrganizador@asignarReserva',
+        'as'  => 'asignarReserva'
+    ]
+);
+Route::post('/asignarReserva',[
+        'uses'=>'panelDeOrganizador@postAsignarReserva',
+        'as'  => 'asignarReserva'
+    ]
+);
+Route::get('/agregarOrganizadores',[
+        'uses'=>'panelDeOrganizador@agregarOrganizadores',
+        'as'  => 'agregarOrganizadores'
+    ]
+);
+Route::post('/agregarOrganizadores',[
+        'uses'=>'panelDeOrganizador@store',
+        'as'  => 'agregarOrganizador'
+    ]
+);

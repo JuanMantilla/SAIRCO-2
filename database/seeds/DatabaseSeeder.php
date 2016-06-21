@@ -52,6 +52,19 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('admin')
 
         ]);
+        factory(App\User::class)->create([
+            'name' => 'Organizador',
+            'email'=> 'organizador@gmail.com',
+            'role'=> 'organizador',
+            'password' => bcrypt('organizador')
+
+        ]);
+        factory(App\ControladorEquipos::class)->create([
+            'Agregar' => '0',
+            'horario'=> '0',
+            'equipoHorario'=> '0',
+
+        ]);
 
 //        factory(App\ControladorEquipos::class)->create([
 //            'Agregar' => '0',

@@ -8,6 +8,7 @@ use App\Equipo;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DateTime;
 
 class agregarEquipoController extends Controller
 {
@@ -25,7 +26,12 @@ class agregarEquipoController extends Controller
 
             if ($valor == 0) {
                 foreach ($hardware as $resultados) {
-                    $fecha = date_create('2016-01-01');
+                    $date=new DateTime();
+                    $result = $date->format('Y-m-d-H-i');
+                    $fechaActualConCeros = substr($result, -16, 14);
+                    $fechaActualConCeros= $fechaActualConCeros."00";
+                    $fecha = DateTime::createFromFormat('Y-m-d-H-i', $fechaActualConCeros);
+                    date_add($fecha, date_interval_create_from_date_string('2 hour'));
                     $nombreSalon = "A1";
                     if (substr($resultados->NAME, -10, 4) == "SALA") {
                         $nombreSalon = $nombreSalon . " " . substr($resultados->NAME, -10, 7);
@@ -44,7 +50,7 @@ class agregarEquipoController extends Controller
                             $hora = (int)substr($horario, -5, 2);
                             $horario = $fecha->format('Y-m-d H:i');
                             if ($hora > 6 && $hora < 21) {
-                                DB::insert('insert into equipo_horario (equipoId, horario, estado) values (?,?,?)', [$resultados->ID, $horario, 0]);
+                                DB::insert('insert into equipo_horario (equipoId, horario, estado, name, ubicacion) values (?,?,?,?,?)', [$resultados->ID, $horario, 0,$nombreEquipo,$nombreSalon]);
                                 DB::table('controladorEquipos')
                                     ->update(['Agregar' => 1]);
                             }

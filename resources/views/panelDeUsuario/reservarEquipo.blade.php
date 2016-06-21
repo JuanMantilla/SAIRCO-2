@@ -7,31 +7,43 @@
     <form role="form" method="POST" action="{{route('reservarEquipo')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-            <table style="width:100%">
+        <h1>Reservar equipo</h1><hr>
+            <table style="width:50%">
                 <h3>Fecha de la reserva: </h3>
                 <tr>
                     <td>¿Desde cuando necesitas el equipo?
-                    <div class="input-append date form_datetime" col="1">
-                        <input class= "form-control"size="16" type="text" name="fecha"value="" readonly placeholder="Fecha inicial">
-                            <span class="add-on">
-                                <i class="icon-th"><span class="glyphicon glyphicon-calendar"></span></i>
-                            </span>
-                    </div>
+
+                        <div class="input-append date form_datetime" col="1">
+                            <div class="row">
+                                <div class="col-md-8 ">
+                                    <input class= "form-control"size="16" type="text" name="fecha"value="" readonly placeholder="Fecha inicial">
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="add-on">
+                                        <i class="icon-th" align="bottom"><span class="glyphicon glyphicon-calendar"></span></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </td>
                     <td>¿Hasta cuando necesitas el equipo?
                     <div class="input-append date form_datetime">
-                        <input class="form-control"size="16" type="text" name="fecha2"value="" readonly  placeholder="Fecha final">
-                        <span class="add-on">
-
-                            <i class="icon-th"><span class="glyphicon glyphicon-calendar"></span></i>
-                        </span>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <input class="form-control"size="16" type="text" name="fecha2"value="" readonly  placeholder="Fecha final">
+                            </div>
+                            <div class="col-md-2">
+                                    <span class="add-on">
+                                        <i class="icon-th"><span class="glyphicon glyphicon-calendar"></span></i>
+                                    </span>
+                            </div>
+                        </div>
                     </div>
                     </td>
                 </tr>
             </table>
 
         </div>
-
         <hr>
         <h3>Software de la reserva: </h3>
 
@@ -46,7 +58,7 @@
         <br>
         <input type="hidden" name="usuario" value="{{ Auth::user()->name }}">
         <br>
-        <input type="submit" name="">
+        <input type="submit" name="" class="btn btn-primary">
     </form>
     <hr>
 @endsection

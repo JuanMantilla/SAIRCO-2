@@ -21,3 +21,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\ControladorEquipos::class, function (Faker\Generator $faker) {
+    return [
+        'Agregar' => '0',
+        'horario'=> '0',
+        'equipoHorario'=> '0',
+    ];
+});
+

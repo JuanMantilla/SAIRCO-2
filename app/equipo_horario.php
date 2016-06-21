@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class equipo_horario extends Model
 {
     protected $table = 'equipo_horario';
-    protected $fillable = ['equipo_id', 'horario', 'estado'];
+    protected $fillable = ['equipo_id', 'horario', 'estado', 'name', 'ubicacion'];
 }

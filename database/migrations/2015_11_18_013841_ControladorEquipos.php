@@ -17,6 +17,8 @@ class ControladorEquipos extends Migration
             $table->integer('Agregar');
             $table->integer('horario');
             $table->integer('equipoHorario');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

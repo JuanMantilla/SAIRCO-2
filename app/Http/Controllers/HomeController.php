@@ -5,24 +5,49 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view('home');
+        if(Auth::check() && Auth::user()->role=='admin') {
+            return redirect()->route('panelDeAdministrador');
+        }elseif(Auth::check() && Auth::user()->role=='user'){
+            return redirect()->route('panelDeUsuario');
+        }else {return view('home');}
     }
 
     public function acercaDe(){
-        return view ('acercaDe/acercaDe');
+        if(Auth::check() && Auth::user()->role=='admin') {
+            return redirect()->route('panelDeAdministrador');
+        }elseif(Auth::check() && Auth::user()->role=='user'){
+            return redirect()->route('panelDeUsuario');
+        }else {
+        return view ('acercaDe/acercaDe');}
     }
     public function JuanMartinez(){
-        return view ('acercaDe/JuanMartinez');
+        if(Auth::check() && Auth::user()->role=='admin') {
+            return redirect()->route('panelDeAdministrador');
+        }elseif(Auth::check() && Auth::user()->role=='user'){
+            return redirect()->route('panelDeUsuario');
+        }else {
+        return view ('acercaDe/JuanMartinez');}
     }
     public function EdwinPuertas(){
-        return view ('acercaDe/EdwinPuertas');
+        if(Auth::check() && Auth::user()->role=='admin') {
+            return redirect()->route('panelDeAdministrador');
+        }elseif(Auth::check() && Auth::user()->role=='user'){
+            return redirect()->route('panelDeUsuario');
+        }else {
+        return view ('acercaDe/EdwinPuertas');}
     }
     public function JuanMantilla(){
-        return view ('acercaDe/JuanMantilla');
+        if(Auth::check() && Auth::user()->role=='admin') {
+            return redirect()->route('panelDeAdministrador');
+        }elseif(Auth::check() && Auth::user()->role=='user'){
+            return redirect()->route('panelDeUsuario');
+        }else {
+        return view ('acercaDe/JuanMantilla');}
     }
     public function Mostrar(){
         return view ('acercaDe/Mostrar');

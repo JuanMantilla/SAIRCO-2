@@ -17,9 +17,10 @@ class EquipoHorario extends Migration
             $table->string('equipoId');
             $table->string('horario');
             $table->string('estado');
+            $table->string('name');
+            $table->string('ubicacion');
         });
     }
-
     /**
      * Reverse the migrations.
      *

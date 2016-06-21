@@ -18,7 +18,11 @@ class agregarAdministradoresController extends Controller
      */
     public function index()
     {
+        if(Auth::check() && Auth::user()->role=='admin') {
         return view('panelDeAdministrador\agregarAdministradores');
+        } else{
+            return redirect()->route('login');
+        }
     }
 
     /**

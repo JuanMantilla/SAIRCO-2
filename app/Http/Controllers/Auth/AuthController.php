@@ -84,7 +84,7 @@ class AuthController extends Controller
     {
         if($role=='admin'){return route('panelDeAdministrador');}
         else if($role=='user'){return route('panelDeUsuario');}
-        else return route('home');
+        elseif ($role=='organizador'){return route('panelDeOrganizador');} else return route('home');
     }
 
 }

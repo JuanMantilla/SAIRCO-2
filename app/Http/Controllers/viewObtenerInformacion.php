@@ -13,6 +13,7 @@ class viewObtenerInformacion extends Controller
     public function index()
     {
         if(Auth::check() && Auth::user()->role=='admin') {
+
             $equipos = DB::select('select * from equipos');
             $salones = DB::select('select * from salones');
             $softwares = DB::table('contadorSoftware')
@@ -20,7 +21,7 @@ class viewObtenerInformacion extends Controller
                 ->get();
             $iterador = 0;
 
-            if ($equipos && $salones && $softwares) {
+            if ($equipos && $salones) {
                 foreach ($equipos as $equipo) {
                     $unicosEquipos[$iterador] = $equipo;
                     $iterador++;
@@ -30,9 +31,6 @@ class viewObtenerInformacion extends Controller
                         $unicosSalones[$iterador] = $salon;
                         $iterador++;
                     }
-                }
-                if (preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"])) {
-                    return response()->json($unicosEquipos);
                 }
                 return view('panelDeAdministrador\viewObtenerInformacion')->with(['equipos' => $unicosEquipos, 'salones' => $unicosSalones, 'softwares' => $softwares]);
 
