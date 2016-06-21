@@ -10,6 +10,7 @@ use App\User;
 use Validator;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
 
 class reservarEquipoController extends Controller
 {

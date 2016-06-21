@@ -4,8 +4,10 @@
 @endsection
 
 @section('contenidoUsuario')
-    <h2 id="bienvenido">En este momento estamos en construcción, muy pronto podrás:</h2><br/>
-    Reservar un equipo:<br/>(parcialmente completado con reservas desde 2016-01-01 8:00 hasta 2016-01-06 20:00, horas exactas).
-    <br/>Cancelar una reserva:<br/>(parcialmente completado para reservas desde 2016-01-01 8:00 hasta 2016-01-06 20:00, horas exactas).
+    <h2 id="bienvenido">Bienvenido a tu panel de usuario, acá podrás:</h2>
+    <ul>
+        <li>Reservar un equipo</li>
+        <li>Gestionar tus reservas</li>
+    </ul>
 
 @endsection

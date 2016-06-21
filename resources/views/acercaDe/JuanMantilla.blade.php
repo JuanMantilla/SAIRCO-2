@@ -8,7 +8,7 @@
             <div class="texto">
                 Estudiante de ingeniería de sistemas de la Universidad Tecnológica de bolívar. Posee conocimientos en JAVA,
                 c++, php, python y html5 con css y boostrap con certificado de asistencia al curso de certificación de JAVA
-                essentials 7.
+                essentials 7 y habilidades con el framework Laravel. Además, tiene conocimientos en realización de aplicaciones Android nativas.
             </div>
         </div>
     @endsection
