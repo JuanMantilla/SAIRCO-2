@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,10 @@ class HomeController extends Controller
             return redirect()->route('panelDeAdministrador');
         }elseif(Auth::check() && Auth::user()->role=='user'){
             return redirect()->route('panelDeUsuario');
-        }else {return view('home');}
+        }elseif(Auth::check() && Auth::user()->role=='organizador'){
+            return redirect()->route('panelDeOrganizador');
+        }
+        else {return view('home');}
     }
 
     public function acercaDe(){
@@ -22,7 +26,10 @@ class HomeController extends Controller
             return redirect()->route('panelDeAdministrador');
         }elseif(Auth::check() && Auth::user()->role=='user'){
             return redirect()->route('panelDeUsuario');
-        }else {
+        }elseif(Auth::check() && Auth::user()->role=='organizador'){
+            return redirect()->route('panelDeOrganizador');
+        }
+        else {
         return view ('acercaDe/acercaDe');}
     }
     public function JuanMartinez(){
@@ -30,7 +37,10 @@ class HomeController extends Controller
             return redirect()->route('panelDeAdministrador');
         }elseif(Auth::check() && Auth::user()->role=='user'){
             return redirect()->route('panelDeUsuario');
-        }else {
+        }elseif(Auth::check() && Auth::user()->role=='organizador'){
+            return redirect()->route('panelDeOrganizador');
+        }
+        else {
         return view ('acercaDe/JuanMartinez');}
     }
     public function EdwinPuertas(){
@@ -38,7 +48,10 @@ class HomeController extends Controller
             return redirect()->route('panelDeAdministrador');
         }elseif(Auth::check() && Auth::user()->role=='user'){
             return redirect()->route('panelDeUsuario');
-        }else {
+        }elseif(Auth::check() && Auth::user()->role=='organizador'){
+            return redirect()->route('panelDeOrganizador');
+        }
+        else {
         return view ('acercaDe/EdwinPuertas');}
     }
     public function JuanMantilla(){
@@ -46,10 +59,14 @@ class HomeController extends Controller
             return redirect()->route('panelDeAdministrador');
         }elseif(Auth::check() && Auth::user()->role=='user'){
             return redirect()->route('panelDeUsuario');
-        }else {
+        }elseif(Auth::check() && Auth::user()->role=='organizador'){
+            return redirect()->route('panelDeOrganizador');
+        }
+        else {
         return view ('acercaDe/JuanMantilla');}
     }
     public function Mostrar(){
-        return view ('acercaDe/Mostrar');
+        $users = DB::select('select * from users ');
+        return view ('mostrar', ['users'=>$users]);
     }
 }

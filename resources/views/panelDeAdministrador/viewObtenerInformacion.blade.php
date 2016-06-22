@@ -26,7 +26,7 @@
 
                 <?php
                 foreach ($softwares as $software){
-                if ($software->nroReservas < 25){
+                if ($software->nroReservas < 10){
                 ?>
                 <tr class="danger">
                 <?php
@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-4 ">
                 <br>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#infoEquiposModal" aria-label="Left Align" >
+                    <button type="button" class="btn btn-info " data-toggle="modal" data-target="#infoEquiposModal" aria-label="Left Align" >
                         <span class="glyphicon glyphicon-info-sign glyphicon-align-left" aria-hidden="true"></span>
                     </button>
             </div>

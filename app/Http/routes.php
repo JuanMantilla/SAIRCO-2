@@ -10,6 +10,12 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/acercaDe/Mostrar', [
+
+    'uses'=>'HomeController@Mostrar',
+    'as' => 'mostrar'
+
+]);
 Route::get('/home', [
 
     'uses'=>'HomeController@index',
