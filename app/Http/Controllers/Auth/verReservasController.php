@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use DateTime;
 class verReservasController extends Controller
 {
     /**
@@ -23,9 +24,22 @@ class verReservasController extends Controller
 
 
             $user = Auth::user()->name;
-            $reservas = DB::select('select * from reservas where usuario = :nombre', ['nombre' => $user]);
-            if ($reservas) {
-                return view('panelDeUsuario\verReservas', ['reservas' => $reservas]);
+            $date=new DateTime();
+            $result = $date->format('Y-m-d-H-i');
+            $fechaActualConCeros = substr($result, -16, 14);
+            $fechaActualConCeros= $fechaActualConCeros."00";
+            $time = DateTime::createFromFormat('Y-m-d-H-i', $fechaActualConCeros);
+            date_add($time, date_interval_create_from_date_string('2 hour'));
+            $reservasExpiradas = DB::table('reservas')
+                ->where ('usuario','=',$user)
+                ->where('fechaFinal', '<=', $time)
+                ->get();
+            $reservasVigentes= DB::table('reservas')
+                ->where ('usuario','=',$user)
+                ->where('fechaFinal', '>=', $time)
+                ->get();
+            if ($reservasVigentes || $reservasExpiradas) {
+                return view('panelDeUsuario\verReservas', ['reservasVigentes' => $reservasVigentes, 'reservasExpiradas'=>$reservasExpiradas]);
 
             } else {
                 $reservas = 0;

@@ -15,6 +15,7 @@
     </script>
 
     <div class="alert alert-danger">
-        <strong>Peligro!</strong> Usted no ha iniciado sesión.
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
     </div>
 @endif

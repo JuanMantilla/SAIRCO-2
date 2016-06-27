@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -82,9 +83,10 @@ class AuthController extends Controller
      */
     public function redirectPath($role)
     {
-        if($role=='admin'){return route('panelDeAdministrador');}
-        else if($role=='user'){return route('panelDeUsuario');}
-        elseif ($role=='organizador'){return route('panelDeOrganizador');} else return route('home');
+        $elRole= Auth::user()->role;
+        if($elRole=='admin'){return route('panelDeAdministrador');}
+        else if($elRole=='user'){return route('panelDeUsuario');}
+        elseif ($elRole=='organizador'){return route('panelDeOrganizador');} else return route('home');
     }
 
 }

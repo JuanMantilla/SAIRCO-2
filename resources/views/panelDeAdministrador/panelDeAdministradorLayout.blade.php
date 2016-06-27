@@ -7,9 +7,6 @@
 
 
     <li>
-        <a href="#">Cambiar tus datos</a>
-    </li>
-    <li>
         <a href="{{route('viewAgregarEquipo')}}">Enlazar los equipos de cómputo</a>
     </li>
     <li>
@@ -26,10 +23,6 @@
     </li>
     <li>
         <a href="{{route('agregarAdministradores')}}">Agregar administradores</a>
-    </li>
-
-    <li>
-        <a href="http://172.16.9.131/">Descargar el agente</a>
     </li>
 @endsection
 @section('content')

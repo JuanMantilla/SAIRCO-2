@@ -26,7 +26,7 @@
 
                 <?php
                 foreach ($softwares as $software){
-                if ($software->nroReservas < 10){
+                if ($software->nroReservas < 20){
                 ?>
                 <tr class="danger">
                 <?php
@@ -165,7 +165,7 @@
                             <div class="container">
                                 <label for="recipient-name" class="control-label">Nuevo nombre del equipo:</label>
                                 <br>
-                                <input type="text" class="form-control" name="name" placeholder="Ingresa acá el nuevo nombre para el equipo" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="name" placeholder="Ingresa acá el nuevo nombre para el equipo" value="{{ old('name') }}"required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -199,7 +199,7 @@
                             <div class="container">
                                 <label for="recipient-name" class="control-label">Nueva ubicación del equipo:</label>
                                 <br>
-                                <input type="text" class="form-control" name="ubicacion" placeholder="Ingresa la nueva ubicación para el equipo" value="{{ old('ubicacion') }}">
+                                <input type="text" class="form-control" name="ubicacion" placeholder="Ingresa la nueva ubicación para el equipo" value="{{ old('ubicacion') }}"required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -233,7 +233,7 @@
                             <div class="container">
                                 <label for="recipient-name" class="control-label">Nuevo nombre del salón:</label>
                                 <br>
-                                <input type="text" class="form-control" name="name" placeholder="Ingresa nombre para el salón" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="name" placeholder="Ingresa nombre para el salón" value="{{ old('name') }}"required>
                             </div>
                         </div>
                         <div class="modal-footer">

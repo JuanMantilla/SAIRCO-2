@@ -16,7 +16,7 @@
                         <div class="input-append date form_datetime" col="1">
                             <div class="row">
                                 <div class=" col-md-8  ">
-                                    <input class= "form-control"size="16" type="datetime" name="fecha"value="" readonly placeholder="Fecha inicial" required>
+                                    <input class= "form-control"size="16" type="datetime" name="fecha"value="" readonly placeholder="Inicio" required>
                                 </div>
                                 <div class="col-md-2">
                                     <span class="add-on">
@@ -30,7 +30,7 @@
                     <div class="input-append date form_datetime">
                         <div class="row">
                             <div class="col-md-8">
-                                <input class="form-control"size="16" type="datetime" name="fecha2"value="" readonly  placeholder="Fecha final" required>
+                                <input class="form-control"size="16" type="datetime" name="fecha2"value="" readonly  placeholder="Final" required>
                             </div>
                             <div class="col-md-2">
                                     <span class="add-on">
@@ -58,7 +58,7 @@
         <br>
         <input type="hidden" name="usuario" value="{{ Auth::user()->name }}">
         <br>
-        <input type="submit" name="" class="btn btn-primary">
+        <input type="submit" value="Enviar" name="Enviar" class="btn btn-primary">
     </form>
     <hr>
 @endsection
